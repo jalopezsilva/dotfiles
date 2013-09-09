@@ -69,6 +69,7 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 nmap <silent> <leader>/ :nohlsearch<CR>
 nmap <silent> <leader>l :set list!<CR>
+nmap <silent> <F3> :NERDTreeToggle<CR>
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 let g:bufferline_rotate = 1
 let g:bufferline_fixed_index =  0 
