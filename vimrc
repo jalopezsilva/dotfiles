@@ -73,6 +73,13 @@ nmap <silent> <leader>/ :nohlsearch<CR>
 nmap <silent> <leader>l :set list!<CR>
 nmap <silent> <F3> :NERDTreeToggle<CR>
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+nnoremap <Leader>rtw :%s/\s\+$//e<CR>
+inoremap <F9> <C-O>za
+nnoremap <F9> za
+onoremap <F9> <C-C>za
+vnoremap <F9> zf
 let g:bufferline_rotate = 1
-let g:bufferline_fixed_index =  0 
+let g:bufferline_fixed_index =  0
+
+autocmd FileType gitcommit setlocal spell
 
