@@ -43,7 +43,6 @@ set listchars=tab:▸\ ,eol:¬       " Defines how to display tab and eol charac
 set showbreak=↪
 
 
-set fdm=indent
 syntax on
 filetype plugin indent on
                                  " GUI - Options
@@ -69,6 +68,10 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+map <Left> <Nop>
+map <Right> <Nop>
+map <Up> <Nop>
+map <Down> <Nop>
 nmap <silent> <leader>/ :nohlsearch<CR>
 nmap <silent> <leader>l :set list!<CR>
 nmap <silent> <F3> :NERDTreeToggle<CR>
