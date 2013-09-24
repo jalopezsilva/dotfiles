@@ -62,7 +62,7 @@ call pathogen#helptags()
 
                                 "  Mappings
 let mapleader =","
-nnoremap <silent> <leader>ev :e $MYVIMRC<CR>
+nnoremap <silent> <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <silent> <leader>sv :so $MYVIMRC<CR>
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
