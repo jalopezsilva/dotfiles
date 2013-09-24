@@ -62,19 +62,19 @@ call pathogen#helptags()
 
                                 "  Mappings
 let mapleader =","
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-map <Left> <Nop>
-map <Right> <Nop>
-map <Up> <Nop>
-map <Down> <Nop>
-nmap <silent> <leader>/ :nohlsearch<CR>
-nmap <silent> <leader>l :set list!<CR>
-nmap <silent> <F3> :NERDTreeToggle<CR>
+nnoremap <silent> <leader>ev :e $MYVIMRC<CR>
+nnoremap <silent> <leader>sv :so $MYVIMRC<CR>
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+nnoremap <silent> <leader>/ :nohlsearch<CR>
+nnoremap <silent> <leader>l :set list!<CR>
+nnoremap <silent> <F3> :NERDTreeToggle<CR>
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 nnoremap <Leader>rtw :%s/\s\+$//e<CR>
 inoremap <F9> <C-O>za
