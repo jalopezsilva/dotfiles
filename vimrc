@@ -76,7 +76,7 @@ nnoremap <silent> <leader>/ :nohlsearch<CR>
 nnoremap <silent> <leader>l :set list!<CR>
 nnoremap <silent> <F3> :NERDTreeToggle<CR>
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
-nnoremap <Leader>rtw :%s/\s\+$//e<CR>
+nnoremap <Leader>rtw :%s/\s\+$//e<CR><C-O>:let @/=""<CR>
 inoremap <F9> <C-O>za
 nnoremap <F9> za
 onoremap <F9> <C-C>za
