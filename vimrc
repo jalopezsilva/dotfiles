@@ -62,6 +62,7 @@ call pathogen#helptags()
 
                                 "  Mappings
 let mapleader =","
+let maplocalleader ="\\"
 nnoremap <silent> <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <silent> <leader>sv :so $MYVIMRC<CR>
 noremap <C-h> <C-w>h
@@ -85,4 +86,3 @@ let g:bufferline_rotate = 1
 let g:bufferline_fixed_index =  0
 
 autocmd FileType gitcommit setlocal spell
-
