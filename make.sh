@@ -1,6 +1,6 @@
 # !bin/bash
 dotfiles_directory=~/dotfiles
-files="vimrc gvimrc vim"
+files="vimrc gvimrc vim tmux.conf"
 
 cd $dotfiles_directory
 
