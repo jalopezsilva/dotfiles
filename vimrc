@@ -62,6 +62,7 @@ call pathogen#helptags()
 
                                 "  Mappings
 let mapleader =","
+let maplocalleader ="\\"
 nnoremap <silent> <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <silent> <leader>sv :so $MYVIMRC<CR>
 noremap <C-h> <C-w>h
@@ -69,7 +70,7 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 noremap <Left> <Nop>
-noremap <Right> <Nop>
+noremap <Right> <Nop> 
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 nnoremap <silent> <leader>/ :nohlsearch<CR>
@@ -84,5 +85,10 @@ vnoremap <F9> zf
 let g:bufferline_rotate = 1
 let g:bufferline_fixed_index =  0
 
+                                  " Autocommands
 autocmd FileType gitcommit setlocal spell
-
+augroup html_group
+  autocmd!
+  autocmd FileType html :iabbrev <buffer> & &amp;
+  autocmd FileType html nnoremap <buffer> <localleader>f Vatzf
+augroup END
