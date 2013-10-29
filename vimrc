@@ -49,7 +49,7 @@ filetype plugin indent on
 set guioptions+=TLlRrb
 set guioptions-=TLlRrb
 
-colorscheme luna
+colorscheme desert
 set nobackup                     "  Disable backing of files
 set noswapfile                   "  Disable use of swap file.
 
