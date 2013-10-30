@@ -84,7 +84,9 @@ onoremap <F9> <C-C>za
 vnoremap <F9> zf
 let g:bufferline_rotate = 1
 let g:bufferline_fixed_index =  0
-
+                                  " Operator Pending Commands
+onoremap i( :<c-u>normal! 0f(vi(<cr>
+onoremap i{ :<c-u>normal! 0f{vi{<cr>
                                   " Autocommands
 autocmd FileType gitcommit setlocal spell
 augroup html_group
