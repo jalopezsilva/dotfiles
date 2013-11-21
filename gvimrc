@@ -1,6 +1,6 @@
 " Gui Options
-set guioptions+=LlRrb
-set guioptions-=LlRrb
+set guioptions+=TLlRrb
+set guioptions-=TLlRrb
 
 colorscheme desertEx
 
