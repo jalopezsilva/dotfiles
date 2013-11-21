@@ -1,10 +1,10 @@
-" .vimrc
+" .vimrc - jalopezsilva@gmail.com
 " ---------------------
+
+" == Basic Settings == {{{
+
 set nocompatible                 "  Set nocompatible to use ViM features instead of plain VI
 set number                       "  Number lines.
-
-filetype indent plugin on        "  Loads specific plugins and indent files based on filetype.
-
 set expandtab                    "  Tab equals spaces.
 set tabstop=2                    "  Defines size of a tab in spaces.
 set softtabstop=2                "  Number of spaces to delete when deleting a tab
@@ -28,7 +28,7 @@ if has('mouse')
 endif
 
 set autoindent                   "  Indent files automatically.
-set copyindent                   "  Copy previous line indentation
+set smartindent
 set pastetoggle=<F2>             "  Use F2 to insert data without indentation.
 
 set termencoding=utf-8           "  Encoding
@@ -42,25 +42,30 @@ set title
 set listchars=tab:▸\ ,eol:¬       " Defines how to display tab and eol characters.
 set showbreak=↪
 
-
-syntax on
-filetype plugin indent on
-                                 " GUI - Options
-set guioptions+=TLlRrb
-set guioptions-=TLlRrb
-
-colorscheme desert
+                                 "colorscheme desert
 set nobackup                     "  Disable backing of files
 set noswapfile                   "  Disable use of swap file.
 
 set wildmenu                     "  Enable tab completion on commands
 set wildmode=list:full           "  Complete first full match.
+set visualbell                   " Disables Audio Bell
 
+syntax on
+filetype plugin indent on
+
+" }}}
+
+" == Plugin Settings == {{{
                                  "  Pathogen
 execute pathogen#infect()
 call pathogen#helptags()
+                                 " Bufferline
+let g:bufferline_rotate = 1
+let g:bufferline_fixed_index =  0
 
-                                "  Mappings
+" }}}
+
+" == Mappings == {{{ 
 let mapleader =","
 let maplocalleader ="\\"
 nnoremap <silent> <leader>ev :vsplit $MYVIMRC<CR>
@@ -70,7 +75,7 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 noremap <Left> <Nop>
-noremap <Right> <Nop> 
+noremap <Right> <Nop>
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 nnoremap <silent> <leader>/ :nohlsearch<CR>
@@ -82,8 +87,13 @@ inoremap <F9> <C-O>za
 nnoremap <F9> za
 onoremap <F9> <C-C>za
 vnoremap <F9> zf
-let g:bufferline_rotate = 1
-let g:bufferline_fixed_index =  0
+                                " Operator Pending Mappings
+onoremap in( :<c-u>normal! f(vi(<cr>
+onoremap in{ :<c-u>normal! f{vi{<cr>
+
+" }}}
+
+" == FileType Specific Mappings == {{{ 
 
                                   " Autocommands
 autocmd FileType gitcommit setlocal spell
@@ -92,3 +102,20 @@ augroup html_group
   autocmd FileType html :iabbrev <buffer> & &amp;
   autocmd FileType html nnoremap <buffer> <localleader>f Vatzf
 augroup END
+
+augroup markdown_group
+  autocmd!
+                                   " Inside Heading 
+  autocmd FileType markdown onoremap ih :<c-u>execute "normal! ?^\\(--\\+\\\|==\\+\\)$\r:nohlsearch\rkvg_"<CR>
+                                   " Around Heading 
+  autocmd FileType markdown onoremap ah :<c-u>execute "normal! ?^\\(--\\+\\\|==\\+\\)$\r:nohlsearch\rg_vk0"<CR>
+                                   " Email Addresses  
+  autocmd FileType markdown onoremap in@ :<c-u>execute "normal! /\\(\\w\\\|\\.\\)\\+@\\w\\+.\\w\\+\r:nohlsearch\rviW"<CR>
+augroup END
+
+augroup filetype_vim
+  autocmd!
+  autocmd FileType vim setlocal foldmethod=marker
+augroup END
+
+" }}}
