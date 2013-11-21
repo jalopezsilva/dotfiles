@@ -17,7 +17,7 @@ set ruler                        "   Show the cursor position all the time
 set showcmd                      "  Display incomplete commands
 set showmatch                    "  Display matching parenthesis
 set cmdheight=2                  "   Sets the height of the cmd in lines.
-set clipboard=unnamedplus        "   Uses the system's clipboard.
+set clipboard=unnamed            "   Uses the system's clipboard.
 
 set hlsearch                     "  Highlights search matches.
 set incsearch                    "  Searching as you type.
