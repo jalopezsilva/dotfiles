@@ -42,7 +42,7 @@ set title
 set listchars=tab:▸\ ,eol:¬       " Defines how to display tab and eol characters.
 set showbreak=↪
 
-                                 "colorscheme desert
+colorscheme desert
 set nobackup                     "  Disable backing of files
 set noswapfile                   "  Disable use of swap file.
 
