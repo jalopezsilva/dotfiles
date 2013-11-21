@@ -28,7 +28,7 @@ if has('mouse')
 endif
 
 set autoindent                   "  Indent files automatically.
-set copyindent                   "  Copy previous line indentation
+set smartindent
 set pastetoggle=<F2>             "  Use F2 to insert data without indentation.
 
 set termencoding=utf-8           "  Encoding
@@ -95,3 +95,16 @@ augroup html_group
   autocmd FileType html :iabbrev <buffer> & &amp;
   autocmd FileType html nnoremap <buffer> <localleader>f Vatzf
 augroup END
+
+if has("autocmd")
+  " Drupal *.module and *.install files.
+  augroup module
+    autocmd BufRead,BufNewFile *.module set filetype=php
+    autocmd BufRead,BufNewFile *.install set filetype=php
+    autocmd BufRead,BufNewFile *.test set filetype=php
+    autocmd BufRead,BufNewFile *.inc set filetype=php
+    autocmd BufRead,BufNewFile *.profile set filetype=php
+    autocmd BufRead,BufNewFile *.view set filetype=php
+  augroup END
+endif
+syntax on
