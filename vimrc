@@ -87,14 +87,14 @@ inoremap <F9> <C-O>za
 nnoremap <F9> za
 onoremap <F9> <C-C>za
 vnoremap <F9> zf
-                                " Operator Pending Mappings
-onoremap in( :<c-u>normal! f(vi(<cr>
-onoremap in{ :<c-u>normal! f{vi{<cr>
+onoremap in( :<c-u>normal! 0f(vi(<cr>
+onoremap in{ :<c-u>normal! 0f{vi{<cr>
+onoremap in[ :<c-u>normal! 0f[vi[<cr>
 
 " }}}
 
 " == FileType Specific Mappings == {{{ 
-
+"
                                   " Autocommands
 autocmd FileType gitcommit setlocal spell
 augroup html_group
