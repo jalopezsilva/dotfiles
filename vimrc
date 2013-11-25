@@ -48,7 +48,10 @@ set noswapfile                   "  Disable use of swap file.
 
 set wildmenu                     "  Enable tab completion on commands
 set wildmode=list:full           "  Complete first full match.
-set visualbell                   " Disables Audio Bell
+set novisualbell                   " Disables Visual Bell
+set noerrorbells
+set t_vb = 
+
 
 syntax on
 filetype plugin indent on
