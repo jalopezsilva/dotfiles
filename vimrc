@@ -49,6 +49,7 @@ set noswapfile                   "  Disable use of swap file.
 set wildmenu                     "  Enable tab completion on commands
 set wildmode=list:full           "  Complete first full match.
 set visualbell                   " Disables Audio Bell
+set nostartofline                " Disables startofline option
 
 syntax on
 filetype plugin indent on
@@ -65,7 +66,7 @@ let g:bufferline_fixed_index =  0
 
 " }}}
 
-" == Mappings == {{{ 
+" == Mappings == {{{
 let mapleader =","
 let maplocalleader ="\\"
 nnoremap <silent> <leader>ev :vsplit $MYVIMRC<CR>
@@ -93,7 +94,7 @@ onoremap in[ :<c-u>normal! 0f[vi[<cr>
 
 " }}}
 
-" == FileType Specific Mappings == {{{ 
+" == FileType Specific Mappings == {{{
 "
                                   " Autocommands
 autocmd FileType gitcommit setlocal spell
@@ -105,11 +106,11 @@ augroup END
 
 augroup markdown_group
   autocmd!
-                                   " Inside Heading 
+                                   " Inside Heading
   autocmd FileType markdown onoremap ih :<c-u>execute "normal! ?^\\(--\\+\\\|==\\+\\)$\r:nohlsearch\rkvg_"<CR>
-                                   " Around Heading 
+                                   " Around Heading
   autocmd FileType markdown onoremap ah :<c-u>execute "normal! ?^\\(--\\+\\\|==\\+\\)$\r:nohlsearch\rg_vk0"<CR>
-                                   " Email Addresses  
+                                   " Email Addresses
   autocmd FileType markdown onoremap in@ :<c-u>execute "normal! /\\(\\w\\\|\\.\\)\\+@\\w\\+.\\w\\+\r:nohlsearch\rviW"<CR>
 augroup END
 
