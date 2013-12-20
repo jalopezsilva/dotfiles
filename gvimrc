@@ -2,5 +2,5 @@
 set guioptions+=TLlRrb
 set guioptions-=TLlRrb
 
-colorscheme desertEx
+colorscheme bubblegum
 
