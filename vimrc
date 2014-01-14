@@ -50,7 +50,7 @@ set wildmenu                     "  Enable tab completion on commands
 set wildmode=list:full           "  Complete first full match.
 set novisualbell                   " Disables Visual Bell
 set noerrorbells
-set t_vb = 
+set t_vb =
 set nostartofline                " Disables startofline option
 
 syntax on
@@ -65,6 +65,9 @@ call pathogen#helptags()
                                  " Bufferline
 let g:bufferline_rotate = 1
 let g:bufferline_fixed_index =  0
+                                " Neocomplcache
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_max_list = 10
 
 " }}}
 
@@ -99,6 +102,13 @@ onoremap in[ :<c-u>normal! 0f[vi[<cr>
 " == FileType Specific Mappings == {{{
 "
                                   " Autocommands
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType java setlocal omnifunc=javacomplete#CompleteTags
+
 autocmd FileType gitcommit setlocal spell
 augroup html_group
   autocmd!
