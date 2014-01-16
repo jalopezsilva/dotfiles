@@ -84,6 +84,8 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 noremap <Up> <Nop>
 noremap <Down> <Nop>
+nnoremap <leader>pbr :execute "rightbelow vsplit " . bufname("#")<CR>
+nnoremap <leader>a; :execute "normal! mqA;<Bslash><lt>ESC>`q"<CR>
 nnoremap <silent> <leader>/ :nohlsearch<CR>
 nnoremap <silent> <leader>l :set list!<CR>
 nnoremap <silent> <F3> :NERDTreeToggle<CR>
