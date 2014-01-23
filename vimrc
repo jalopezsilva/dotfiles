@@ -98,6 +98,7 @@ vnoremap <F9> zf
 onoremap in( :<c-u>normal! 0f(vi(<cr>
 onoremap in{ :<c-u>normal! 0f{vi{<cr>
 onoremap in[ :<c-u>normal! 0f[vi[<cr>
+nnoremap / /\v
 
 " }}}
 
