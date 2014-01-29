@@ -99,6 +99,8 @@ onoremap in( :<c-u>normal! 0f(vi(<cr>
 onoremap in{ :<c-u>normal! 0f{vi{<cr>
 onoremap in[ :<c-u>normal! 0f[vi[<cr>
 nnoremap / /\v
+nnoremap <leader>qn :cnext<CR>
+nnoremap <leader>qp :cprevious<CR>
 
 " }}}
 
