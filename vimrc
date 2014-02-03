@@ -52,6 +52,7 @@ set novisualbell                   " Disables Visual Bell
 set noerrorbells
 set t_vb =
 set nostartofline                " Disables startofline option
+set tags=tags;/                  " Search upwards for a tags file until the root folder.
 
 syntax on
 filetype plugin indent on
