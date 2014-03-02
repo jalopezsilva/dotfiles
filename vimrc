@@ -148,4 +148,19 @@ augroup filetype_vim
   autocmd FileType vim setlocal foldmethod=marker
 augroup END
 
+augroup filetype_python
+    autocmd!
+    autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 textwidth=80
+augroup END
+
+" }}}
+
+" == Plugin Settings == {{{
+
+" Conque Shell
+let g:ConqueTerm_Color = 2
+let g:ConqueTerm_InsertOnEnter = 1
+let g:ConqueTerm_CloseOnEnd = 1
+let g:ConqueTerm_CWInsert = 1
+nnoremap <leader>osh :call conque_term#open('bash', ['belowright split', 'resize 10']) <CR>
 " }}}
