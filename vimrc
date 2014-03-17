@@ -103,6 +103,7 @@ onoremap in[ :<c-u>normal! 0f[vi[<cr>
 nnoremap / /\v
 nnoremap <leader>qn :cnext<CR>
 nnoremap <leader>qp :cprevious<CR>
+nnoremap <leader>rn :setlocal relativenumber!<CR>
 
 " }}}
 
@@ -111,10 +112,17 @@ nnoremap <leader>qp :cprevious<CR>
                                   " Autocommands
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType java setlocal omnifunc=javacomplete#CompleteTags
+autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
+
+if has("autocmd") && exists("+omnifunc")
+autocmd Filetype *
+    \	if &omnifunc == "" |
+    \	 setlocal omnifunc=syntaxcomplete#Complete |
+    \	endif
+    endif
 
 autocmd FileType gitcommit setlocal spell
 augroup html_group
