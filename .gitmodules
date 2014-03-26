@@ -28,3 +28,9 @@
 [submodule "vim/bundle/phpcomplete.vim"]
 	path = vim/bundle/phpcomplete.vim
 	url = git@github.com:shawncplus/phpcomplete.vim.git
+[submodule "vim/bundle/matchit"]
+	path = vim/bundle/matchit
+	url = git@github.com:tmhedberg/matchit.git
+[submodule "vim/bundle/vim-sparkup"]
+	path = vim/bundle/vim-sparkup
+	url = git@github.com:sjl/vim-sparkup.git
