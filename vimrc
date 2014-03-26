@@ -55,6 +55,8 @@ set t_vb =
 set nostartofline                " Disables startofline option
 set tags=tags;/                  " Search upwards for a tags file until the root folder.
 
+set laststatus=2                 " Always show status lines.
+
 syntax on
 filetype plugin indent on
 
