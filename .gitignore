@@ -1,2 +1,3 @@
 # Files to be ignored.
 vim/.netrwhist
+vim/bundle/potion
