@@ -1,5 +1,9 @@
 " .vimrc - jalopezsilva@gmail.com
 " ---------------------
+" == Pathogen == {{{
+execute pathogen#infect()
+call pathogen#helptags()
+" }}}
 
 " == Basic Settings == {{{
 
@@ -63,13 +67,10 @@ filetype plugin indent on
 " }}}
 
 " == Plugin Settings == {{{
-                                 "  Pathogen
-execute pathogen#infect()
-call pathogen#helptags()
-                                 " Bufferline
+" Bufferline
 let g:bufferline_rotate = 1
 let g:bufferline_fixed_index =  0
-                                " Neocomplcache
+" Neocomplcache
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_max_list = 10
 
@@ -112,7 +113,7 @@ nnoremap <leader>rn :setlocal relativenumber!<CR>
 
 " == FileType Specific Mappings == {{{
 "
-                                  " Autocommands
+" Autocommands
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
@@ -121,11 +122,11 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
 
 if has("autocmd") && exists("+omnifunc")
-autocmd Filetype *
-    \	if &omnifunc == "" |
-    \	 setlocal omnifunc=syntaxcomplete#Complete |
-    \	endif
-    endif
+  autocmd Filetype *
+        \	if &omnifunc == "" |
+        \	 setlocal omnifunc=syntaxcomplete#Complete |
+        \	endif
+endif
 
 autocmd FileType gitcommit setlocal spell
 augroup html_group
@@ -146,11 +147,11 @@ augroup END
 
 augroup markdown_group
   autocmd!
-                                   " Inside Heading
+  " Inside Heading
   autocmd FileType markdown onoremap ih :<c-u>execute "normal! ?^\\(--\\+\\\|==\\+\\)$\r:nohlsearch\rkvg_"<CR>
-                                   " Around Heading
+  " Around Heading
   autocmd FileType markdown onoremap ah :<c-u>execute "normal! ?^\\(--\\+\\\|==\\+\\)$\r:nohlsearch\rg_vk0"<CR>
-                                   " Email Addresses
+  " Email Addresses
   autocmd FileType markdown onoremap in@ :<c-u>execute "normal! /\\(\\w\\\|\\.\\)\\+@\\w\\+.\\w\\+\r:nohlsearch\rviW"<CR>
 augroup END
 
@@ -160,8 +161,8 @@ augroup filetype_vim
 augroup END
 
 augroup filetype_python
-    autocmd!
-    autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 textwidth=80
+  autocmd!
+  autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 textwidth=80
 augroup END
 
 " }}}
@@ -176,5 +177,5 @@ let g:ConqueTerm_CWInsert = 1
 nnoremap <leader>osh :call conque_term#open('bash', ['belowright split', 'resize 10']) <CR>
 
 " SparkUp
-  let g:sparkupNextMapping = '<c-k>'
+let g:sparkupNextMapping = '<c-k>'
 " }}}
