@@ -80,6 +80,12 @@ let g:html_indent_inctags = "html,body,head,tbody"
 " == Mappings == {{{
 let mapleader =","
 let maplocalleader ="\\"
+inoremap {      {}<Left>
+inoremap {<CR>  {<CR>}<Esc>O
+inoremap {{     {
+inoremap {}     {}
+inoremap        (  ()<Left>
+inoremap <expr> )  strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
 nnoremap <silent> <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <silent> <leader>sv :so $MYVIMRC<CR>
 noremap <C-h> <C-w>h
