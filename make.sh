@@ -1,6 +1,6 @@
 # !bin/bash
 dotfiles_directory=~/dotfiles
-files="vimrc gvimrc vim tmux.conf gitignore"
+files="vimrc gvimrc vim tmux.conf gitignore zshrc zpreztorc"
 
 cd $dotfiles_directory
 
