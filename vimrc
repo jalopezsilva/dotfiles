@@ -112,9 +112,11 @@ onoremap in( :<c-u>normal! 0f(vi(<cr>
 onoremap in{ :<c-u>normal! 0f{vi{<cr>
 onoremap in[ :<c-u>normal! 0f[vi[<cr>
 nnoremap / /\v
+nnoremap <leader>qo :copen<CR>
 nnoremap <leader>qn :cnext<CR>
 nnoremap <leader>qp :cprevious<CR>
 nnoremap <leader>rn :setlocal relativenumber!<CR>
+cnoremap w!! w !sudo tee > /dev/null %
 
 " }}}
 
@@ -172,6 +174,13 @@ augroup filetype_python
   autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 textwidth=80
 augroup END
 
+augroup filetype_php
+    autocmd!
+    autocmd FileType php setlocal foldmethod=syntax foldlevel=1 foldnestmax=2 foldcolumn=3
+    let php_folding = 1
+    let php_sql_query = 1
+augroup END
+
 " }}}
 
 " == Plugin Settings == {{{
@@ -181,7 +190,7 @@ let g:ConqueTerm_Color = 2
 let g:ConqueTerm_InsertOnEnter = 1
 let g:ConqueTerm_CloseOnEnd = 1
 let g:ConqueTerm_CWInsert = 1
-nnoremap <leader>osh :call conque_term#open('bash', ['belowright split', 'resize 10']) <CR>
+nnoremap <leader>osh :call conque_term#open('zsh', ['belowright split', 'resize 10']) <CR>
 
 " SparkUp
 let g:sparkupNextMapping = '<c-k>'
