@@ -90,9 +90,6 @@ noremap <Down> <Nop>
 nnoremap Q <Nop>
 nnoremap <leader>pbr :execute "rightbelow vsplit " . bufname("#")<CR>
 nnoremap <leader>a; :execute "normal! mqA;<Bslash><lt>ESC>`q"<CR>
-nnoremap <silent> <leader>/ :nohlsearch<CR>
-nnoremap <silent> <leader>l :set list!<CR>
-nnoremap <silent> <F3> :NERDTreeToggle<CR>
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 nnoremap <Leader>rtw :%s/\s\+$//e<CR><C-O>:let @/=""<CR>
 inoremap <F9> <C-O>za
@@ -103,10 +100,6 @@ onoremap in( :<c-u>normal! 0f(vi(<cr>
 onoremap in{ :<c-u>normal! 0f{vi{<cr>
 onoremap in[ :<c-u>normal! 0f[vi[<cr>
 nnoremap / /\v
-nnoremap <leader>qo :copen<CR>
-nnoremap <leader>qn :cnext<CR>
-nnoremap <leader>qp :cprevious<CR>
-nnoremap <leader>rn :setlocal relativenumber!<CR>
 cnoremap w!! w !sudo tee > /dev/null %
 
 " }}}
