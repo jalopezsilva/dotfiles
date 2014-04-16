@@ -1,5 +1,5 @@
 " .vimrc - jalopezsilva@gmail.com
-" ---------------------
+" -------------------------------
 
 " == Initialize == {{{
 execute pathogen#infect()
@@ -88,6 +88,7 @@ noremap <Right> <Nop>
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 nnoremap Q <Nop>
+nnoremap <silent> <leader>/ :nohlsearch<CR>
 nnoremap <leader>pbr :execute "rightbelow vsplit " . bufname("#")<CR>
 nnoremap <leader>a; :execute "normal! mqA;<Bslash><lt>ESC>`q"<CR>
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
@@ -189,5 +190,13 @@ let g:bufferline_fixed_index =  0
 
 " Indent HTML
 let g:html_indent_inctags = "html,body,head,tbody"
+
+" Neocomplcache
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_max_list = 10
+if !exists('g:neocomplcache_omni_patterns')
+  let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 
 " }}}
