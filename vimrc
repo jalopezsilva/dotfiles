@@ -1,8 +1,10 @@
 " .vimrc - jalopezsilva@gmail.com
 " ---------------------
-" == Pathogen == {{{
+
+" == Initialize == {{{
 execute pathogen#infect()
 call pathogen#helptags()
+
 " }}}
 
 " == Basic Settings == {{{
@@ -66,18 +68,7 @@ filetype plugin indent on
 
 " }}}
 
-" == Plugin Settings == {{{
-" Bufferline
-let g:bufferline_rotate = 1
-let g:bufferline_fixed_index =  0
-" Neocomplcache
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_max_list = 10
-" Indent HTML
-let g:html_indent_inctags = "html,body,head,tbody"
-" }}}
-
-" == Mappings == {{{
+" == Regular Mappings == {{{
 let mapleader =","
 let maplocalleader ="\\"
 inoremap {      {}<Left>
@@ -194,4 +185,16 @@ nnoremap <leader>osh :call conque_term#open('zsh', ['belowright split', 'resize 
 
 " SparkUp
 let g:sparkupNextMapping = '<c-k>'
+
+" Syntastic
+let g:syntastic_python_checkers = ['python']
+let g:syntastic_php_checkers = ['php']
+
+" Bufferline
+let g:bufferline_rotate = 1
+let g:bufferline_fixed_index =  0
+
+" Indent HTML
+let g:html_indent_inctags = "html,body,head,tbody"
+
 " }}}
