@@ -55,9 +55,7 @@ set noswapfile                   "  Disable use of swap file.
 
 set wildmenu                     "  Enable tab completion on commands
 set wildmode=list:full           "  Complete first full match.
-set novisualbell                   " Disables Visual Bell
-set noerrorbells
-set t_vb =
+set vb noerrorbells t_vb=        " Be silent!
 set nostartofline                " Disables startofline option
 set tags=tags;/                  " Search upwards for a tags file until the root folder.
 
@@ -102,12 +100,14 @@ onoremap in{ :<c-u>normal! 0f{vi{<cr>
 onoremap in[ :<c-u>normal! 0f[vi[<cr>
 nnoremap / /\v
 cnoremap w!! w !sudo tee > /dev/null %
+cnoremap s/ s/\v
 
 " }}}
 
 " == FileType Specific Mappings == {{{
 "
 " Autocommands
+autocmd GUIEnter * set visualbell t_vb=
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
@@ -157,6 +157,7 @@ augroup END
 augroup filetype_python
   autocmd!
   autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 textwidth=80
+  autocmd FileType python nnoremap <F5> :!clear; python %<CR>
 augroup END
 
 augroup filetype_php
@@ -164,6 +165,8 @@ augroup filetype_php
     autocmd FileType php setlocal foldmethod=syntax foldlevel=1 foldnestmax=2 foldcolumn=3
     let php_folding = 1
     let php_sql_query = 1
+    let g:PHP_vintage_case_default_indent = 1
+    let g:PHP_outdentphpescape = 1
 augroup END
 
 " }}}
