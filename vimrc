@@ -123,10 +123,11 @@ if has("autocmd") && exists("+omnifunc")
 endif
 
 autocmd FileType gitcommit setlocal spell
-augroup html_group
+augroup filetype_html
   autocmd!
   autocmd FileType html :iabbrev <buffer> & &amp;
   autocmd FileType html nnoremap <buffer> <localleader>f Vatzf
+  autocmd FileType html nnoremap <buffer> <F5> :!open %<CR>
 augroup END
 
 " Drupal *.module and *.install files.
@@ -157,7 +158,7 @@ augroup END
 augroup filetype_python
   autocmd!
   autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 textwidth=80
-  autocmd FileType python nnoremap <F5> :!clear; python %<CR>
+  autocmd FileType python nnoremap <buffer> <F5> :!clear; python %<CR>
 augroup END
 
 augroup filetype_php
