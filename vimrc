@@ -4,7 +4,6 @@
 " == Initialize == {{{
 execute pathogen#infect()
 call pathogen#helptags()
-
 " }}}
 
 " == Basic Settings == {{{
@@ -202,5 +201,9 @@ if !exists('g:neocomplcache_omni_patterns')
   let g:neocomplcache_omni_patterns = {}
 endif
 let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+
+" Gundo
+nnoremap <F6> :GundoToggle<CR>
+let g:gundo_preview_bottom = 1
 
 " }}}
