@@ -156,12 +156,17 @@ augroup filetype_python
 augroup END
 
 augroup filetype_php
-    autocmd!
-    autocmd FileType php setlocal foldmethod=syntax foldlevel=1 foldnestmax=2 foldcolumn=3
-    let php_folding = 1
-    let php_sql_query = 1
-    let g:PHP_vintage_case_default_indent = 1
-    let g:PHP_outdentphpescape = 1
+  autocmd!
+  autocmd FileType php setlocal foldmethod=syntax foldlevel=1 foldnestmax=2 foldcolumn=3
+  let php_folding = 1
+  let php_sql_query = 1
+  let g:PHP_vintage_case_default_indent = 1
+  let g:PHP_outdentphpescape = 1
+augroup END
+
+augroup filetype_javascript 
+  autocmd!
+  autocmd FileType javascript setlocal foldmethod=syntax foldlevel=1 foldnestmax=3 foldcolumn=4
 augroup END
 
 augroup filetype_make
