@@ -68,12 +68,6 @@ filetype plugin indent on
 " == Regular Mappings == {{{
 let mapleader =","
 let maplocalleader ="\\"
-inoremap {      {}<Left>
-inoremap {<CR>  {<CR>}<Esc>O
-inoremap {{     {
-inoremap {}     {}
-inoremap        (  ()<Left>
-inoremap <expr> )  strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
 nnoremap <silent> <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <silent> <leader>sv :so $MYVIMRC<CR>
 noremap <C-h> <C-w>h
@@ -99,7 +93,8 @@ onoremap in{ :<c-u>normal! 0f{vi{<cr>
 onoremap in[ :<c-u>normal! 0f[vi[<cr>
 nnoremap / /\v
 cnoremap w!! w !sudo tee > /dev/null %
-cnoremap s/ s/\v
+cnoremap %s/ %s/\v
+cnoremap >s/ >s/\v
 
 " }}}
 
@@ -169,6 +164,11 @@ augroup filetype_php
     let g:PHP_outdentphpescape = 1
 augroup END
 
+augroup filetype_make
+  autocmd!
+  autocmd FileType make setlocal noexpandtab
+augroup END
+
 " }}}
 
 " == Plugin Settings == {{{
@@ -206,4 +206,6 @@ let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 nnoremap <F6> :GundoToggle<CR>
 let g:gundo_preview_bottom = 1
 
+"" DelimitMate
+let delimitMate_matchpairs = "(:),[:],{:}"
 " }}}
