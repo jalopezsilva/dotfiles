@@ -164,9 +164,9 @@ augroup filetype_php
   let g:PHP_outdentphpescape = 1
 augroup END
 
-augroup filetype_javascript 
+augroup filetype_javascript
   autocmd!
-  autocmd FileType javascript setlocal foldmethod=syntax foldlevel=1 foldnestmax=3 foldcolumn=4
+  autocmd FileType javascript setlocal foldmethod=syntax foldlevel=0 foldnestmax=2 foldcolumn=4
 augroup END
 
 augroup filetype_make
@@ -186,7 +186,7 @@ let g:ConqueTerm_CWInsert = 1
 nnoremap <leader>osh :call conque_term#open('zsh', ['belowright split', 'resize 10']) <CR>
 
 " SparkUp
-let g:sparkupNextMapping = '<c-k>'
+let g:sparkupNextMapping = '<c-y>'
 
 " Syntastic
 let g:syntastic_python_checkers = ['python']
