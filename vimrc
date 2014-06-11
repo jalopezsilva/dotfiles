@@ -213,4 +213,8 @@ let g:gundo_preview_bottom = 1
 
 "" DelimitMate
 let delimitMate_matchpairs = "(:),[:],{:}"
+
+"" Startify
+let g:startify_custom_header =
+      \ map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['','']
 " }}}
