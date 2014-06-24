@@ -8,6 +8,9 @@ call pathogen#helptags()
 
 " == Basic Settings == {{{
 
+syntax on
+filetype plugin indent on
+
 set nocompatible                 "  Set nocompatible to use ViM features instead of plain VI
 set number                       "  Number lines.
 set expandtab                    "  Tab equals spaces.
@@ -32,8 +35,6 @@ if has('mouse')
   set mouse=a                      "  Enables use of mouse
 endif
 
-set autoindent                   "  Indent files automatically.
-set smartindent
 set pastetoggle=<F2>             "  Use F2 to insert data without indentation.
 
 set termencoding=utf-8           "  Encoding
@@ -60,8 +61,7 @@ set tags=tags;/                  " Search upwards for a tags file until the root
 
 set laststatus=2                 " Always show status lines.
 
-syntax on
-filetype plugin indent on
+set smartindent                  " Indent, Indent, Indent
 
 " }}}
 
@@ -216,5 +216,9 @@ let delimitMate_matchpairs = "(:),[:],{:}"
 
 "" Startify
 let g:startify_custom_header =
-      \ map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['','']
-" }}}
+      \ map(split(system('fortune | cowsay -f moose'), '\n'), '"   ". v:val') + ['','']
+
+"" Tagbar
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_autofocus = 1
+  " }}}
