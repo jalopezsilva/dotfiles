@@ -57,7 +57,7 @@ set wildmenu                     "  Enable tab completion on commands
 set wildmode=list:full           "  Complete first full match.
 set vb noerrorbells t_vb=        " Be silent!
 set nostartofline                " Disables startofline option
-set tags=tags;/                  " Search upwards for a tags file until the root folder.
+set tags=./.tags;,~/.vimtags     " Search upwards for a tags file until the root folder.
 
 set laststatus=2                 " Always show status lines.
 
@@ -216,9 +216,28 @@ let delimitMate_matchpairs = "(:),[:],{:}"
 
 "" Startify
 let g:startify_custom_header =
-      \ map(split(system('fortune | cowsay -f moose'), '\n'), '"   ". v:val') + ['','']
+      \ map(split(system('fortune -s | cowsay -f moose'), '\n'), '"   ". v:val') + ['','']
 
 "" Tagbar
 nmap <F8> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
+let g:tagbar_type_php  = {
+  \ 'ctagstype' : 'php',
+  \ 'kinds'     : [
+      \ 'i:interfaces',
+      \ 'c:classes',
+      \ 'd:constant definitions',
+      \ 'f:functions',
+      \ 'j:javascript functions:1'
+  \ ]
+\ }
+let g:tagbar_type_javascript  = {
+  \ 'ctagstype' : 'JavaScript',
+  \ 'kinds'     : [
+      \ 'v:global variables',
+      \ 'c:classes',
+      \ 'm:methods',
+      \ 'f:functions'
+  \ ]
+\ }
   " }}}
