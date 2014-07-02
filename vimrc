@@ -57,11 +57,12 @@ set wildmenu                     "  Enable tab completion on commands
 set wildmode=list:full           "  Complete first full match.
 set vb noerrorbells t_vb=        " Be silent!
 set nostartofline                " Disables startofline option
-set tags=./.tags;,~/.vimtags     " Search upwards for a tags file until the root folder.
+set tags=./.tags
 
 set laststatus=2                 " Always show status lines.
 
 set smartindent                  " Indent, Indent, Indent
+set cursorline                   " Highlight the current line.
 
 " }}}
 
@@ -231,6 +232,7 @@ let g:tagbar_type_php  = {
       \ 'j:javascript functions:1'
   \ ]
 \ }
+
 let g:tagbar_type_javascript  = {
   \ 'ctagstype' : 'JavaScript',
   \ 'kinds'     : [
@@ -240,4 +242,8 @@ let g:tagbar_type_javascript  = {
       \ 'f:functions'
   \ ]
 \ }
+
+" Easy Tags
+let g:easytags_dynamic_files = 2
+let g:easytags_auto_highlight = 0
   " }}}

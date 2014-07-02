@@ -22,12 +22,6 @@
 [submodule "vim/bundle/vim-surround"]
 	path = vim/bundle/vim-surround
 	url = git@github.com:tpope/vim-surround.git
-[submodule "vim/bundle/neocomplcache.vim"]
-	path = vim/bundle/neocomplcache.vim
-	url = git@github.com:Shougo/neocomplcache.vim.git
-[submodule "vim/bundle/phpcomplete.vim"]
-	path = vim/bundle/phpcomplete.vim
-	url = git@github.com:shawncplus/phpcomplete.vim.git
 [submodule "vim/bundle/matchit"]
 	path = vim/bundle/matchit
 	url = git@github.com:tmhedberg/matchit.git
@@ -64,3 +58,6 @@
 [submodule "vim/bundle/vim-easytags"]
 	path = vim/bundle/vim-easytags
 	url = git@github.com:xolox/vim-easytags.git
+[submodule "vim/bundle/numbers.vim"]
+	path = vim/bundle/numbers.vim
+	url = git@github.com:myusuf3/numbers.vim.git
