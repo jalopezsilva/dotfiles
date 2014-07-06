@@ -44,6 +44,7 @@ set fileformat=unix
 set history=1000
 set undolevels=1000
 set wildignore=*.swp,*.bak,*.pyc,*.class
+set wildignore+=*/node_modules/*
 set title
 set listchars=tab:▸\ ,eol:¬       " Defines how to display tab and eol characters.
 set showbreak=↪
@@ -167,7 +168,7 @@ augroup END
 
 augroup filetype_javascript
   autocmd!
-  autocmd FileType javascript setlocal foldmethod=syntax foldlevel=0 foldnestmax=2 foldcolumn=4
+  autocmd FileType javascript setlocal foldmethod=syntax foldlevel=0 foldnestmax=1 foldcolumn=4
 augroup END
 
 augroup filetype_make
@@ -203,10 +204,6 @@ let g:html_indent_inctags = "html,body,head,tbody"
 " Neocomplcache
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_max_list = 10
-if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
-endif
-let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 
 " Gundo
 nnoremap <F6> :GundoToggle<CR>
@@ -246,4 +243,20 @@ let g:tagbar_type_javascript  = {
 " Easy Tags
 let g:easytags_dynamic_files = 2
 let g:easytags_auto_highlight = 0
+
+" Neosnippets
+
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: "\<TAB>"
+
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=3 concealcursor=nvi
+endif
+
   " }}}

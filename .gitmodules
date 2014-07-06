@@ -61,3 +61,12 @@
 [submodule "vim/bundle/numbers.vim"]
 	path = vim/bundle/numbers.vim
 	url = git@github.com:myusuf3/numbers.vim.git
+[submodule "vim/bundle/neocomplcache.vim"]
+	path = vim/bundle/neocomplcache.vim
+	url = git@github.com:Shougo/neocomplcache.vim.git
+[submodule "vim/bundle/neosnippet.vim"]
+	path = vim/bundle/neosnippet.vim
+	url = git@github.com:Shougo/neosnippet.vim.git
+[submodule "vim/bundle/neosnippet-snippets"]
+	path = vim/bundle/neosnippet-snippets
+	url = git@github.com:Shougo/neosnippet-snippets.git
