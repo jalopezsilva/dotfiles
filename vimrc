@@ -190,6 +190,9 @@ nnoremap <leader>osh :call conque_term#open('zsh', ['belowright split', 'resize 
 " SparkUp
 let g:sparkupNextMapping = '<c-y>'
 
+" Vim Airline
+let g:airline_powerline_fonts = 1
+
 " Syntastic
 let g:syntastic_python_checkers = ['python']
 let g:syntastic_php_checkers = ['php']
