@@ -1,17 +1,24 @@
 " .vimrc - jalopezsilva@gmail.com
 " -------------------------------
 
+" == Vundle == {{{
+function! VundleInit()
+  set runtimepath+=~/.vim/bundle/Vundle.vim
+  call vundle#begin()
+  source bundlebag.vim
+  call vundle#end()
+endfunction
+" }}}
+"
 " == Initialize == {{{
-execute pathogen#infect()
-call pathogen#helptags()
+set nocompatible
+filetype off
+call VundleInit()
+filetype plugin indent on
+syntax on
 " }}}
 
 " == Basic Settings == {{{
-
-syntax on
-filetype plugin indent on
-
-set nocompatible                 "  Set nocompatible to use ViM features instead of plain VI
 set number                       "  Number lines.
 set expandtab                    "  Tab equals spaces.
 set tabstop=2                    "  Defines size of a tab in spaces.
