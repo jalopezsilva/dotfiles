@@ -3,10 +3,12 @@
 
 " == Vundle == {{{
 function! VundleInit()
+  let g:BundleBagPath="~/.vim/bundlebag.vim"
   set runtimepath+=~/.vim/bundle/Vundle.vim
   call vundle#begin()
-  source bundlebag.vim
+  execute 'source' . fnameescape(g:BundleBagPath)
   call vundle#end()
+  nnoremap <leader>ebb :execute "vsplit " . fnameescape(g:BundleBagPath)<CR>
 endfunction
 " }}}
 "
