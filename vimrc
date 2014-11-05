@@ -58,7 +58,7 @@ set title
 set listchars=tab:▸\ ,eol:¬       " Defines how to display tab and eol characters.
 set showbreak=↪
 
-colorscheme bubblegum
+colorscheme Tomorrow-Night-Eighties
 
 set nobackup                     "  Disable backing of files
 set noswapfile                   "  Disable use of swap file.

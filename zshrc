@@ -20,3 +20,6 @@ alias ssh="TERM=screen ssh"
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 source ~/.fzf.zsh
 eval "$(rbenv init -)"
+autoload -Uz promptinit
+promptinit
+prompt bart
