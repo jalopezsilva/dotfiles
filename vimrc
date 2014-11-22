@@ -189,13 +189,6 @@ augroup END
 
 " == Plugin Settings == {{{
 
-" Conque Shell
-let g:ConqueTerm_Color = 2
-let g:ConqueTerm_InsertOnEnter = 1
-let g:ConqueTerm_CloseOnEnd = 1
-let g:ConqueTerm_CWInsert = 1
-nnoremap <leader>osh :call conque_term#open('zsh', ['belowright split', 'resize 10']) <CR>
-
 " SparkUp
 let g:sparkupNextMapping = '<c-y>'
 
