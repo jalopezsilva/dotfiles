@@ -1,5 +1,10 @@
 # Files to be ignored.
+
+# dotfiles under vim
 vim/.netrwhist
+vim/.tags
+
+# Plugins
 vim/bundle/potion
 vim/bundle/
-vim/.tags
+!vim/bundle/Vundle.vim
