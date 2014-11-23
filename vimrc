@@ -207,9 +207,13 @@ let g:bufferline_fixed_index =  0
 let g:html_indent_inctags = "html,body,head,tbody"
 
 " Neocomplcache
+let g:acp_enableAtStartup = 0
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_max_list = 10
-
+let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_min_syntax_length = 3
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " Gundo
 nnoremap <F6> :GundoToggle<CR>
 let g:gundo_preview_bottom = 1
@@ -250,8 +254,10 @@ let g:easytags_dynamic_files = 2
 let g:easytags_auto_highlight = 0
 
 " Neosnippets
-
-" SuperTab like snippets behavior.
+let g:neosnippet#enable_snipmate_compatibility = 1
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)"
 \: pumvisible() ? "\<C-n>" : "\<TAB>"
