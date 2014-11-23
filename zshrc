@@ -10,16 +10,26 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
-
+# Default editor
 export EDITOR=vim
 export VISUAL=vim
 
+# Aliases
 alias ssh="TERM=screen ssh"
 
+# Autojump
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+
+# Fzf
 source ~/.fzf.zsh
+
+# rbEnv init.
 eval "$(rbenv init -)"
+
+# Prompt.
 autoload -Uz promptinit
 promptinit
 prompt bart
+
+# Complete.
+autoload -U compinit && compinit
