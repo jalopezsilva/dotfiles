@@ -1,5 +1,5 @@
 " Vundle step
-Plugin 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
 " Github based plugins.
 Plugin 'bling/vim-airline'
@@ -33,7 +33,7 @@ Plugin 'vim-scripts/lh-vim-lib'
 Plugin 'xolox/vim-misc'
 
 " vim-scripts plugins.
-Plugin "CSApprox"
+Plugin 'CSApprox'
 
 " Colorschemes
 Plugin 'chriskempson/vim-tomorrow-theme'

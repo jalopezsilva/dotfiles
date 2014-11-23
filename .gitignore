@@ -5,5 +5,5 @@ vim/.netrwhist
 vim/.tags
 
 # Plugins
-vim/bundle/
+vim/bundle/*
 !vim/bundle/Vundle.vim
