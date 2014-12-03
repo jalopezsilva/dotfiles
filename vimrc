@@ -189,6 +189,9 @@ augroup END
 
 " == Plugin Settings == {{{
 
+" CtrlP
+nnoremap <leader>bs :CtrlPBuffer<CR>
+
 " SparkUp
 let g:sparkupNextMapping = '<c-y>'
 
