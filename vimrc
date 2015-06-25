@@ -58,7 +58,7 @@ set title
 set listchars=tab:▸\ ,eol:¬       " Defines how to display tab and eol characters.
 set showbreak=↪
 
-colorscheme Tomorrow-Night-Eighties
+colorscheme Tomorrow-Night
 
 set nobackup                     "  Disable backing of files
 set noswapfile                   "  Disable use of swap file.
@@ -199,7 +199,7 @@ let g:sparkupNextMapping = '<c-y>'
 let g:airline_powerline_fonts = 1
 
 " Syntastic
-let g:syntastic_python_checkers = ['python']
+let g:syntastic_python_checkers = ['python', 'pyflakes', 'pep8']
 let g:syntastic_php_checkers = ['php']
 
 " Bufferline

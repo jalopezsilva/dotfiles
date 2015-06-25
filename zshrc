@@ -17,6 +17,9 @@ export VISUAL=vim
 # Aliases
 alias ssh="TERM=screen ssh"
 
+# Hub
+eval $(hub alias -s)
+
 # Autojump
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
