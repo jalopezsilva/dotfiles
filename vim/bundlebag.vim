@@ -5,7 +5,6 @@ Plugin 'gmarik/Vundle.vim'
 " Github based plugins.
 
 Plugin 'bling/vim-airline'
-Plugin 'bling/vim-bufferline'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'godlygeek/tabular'

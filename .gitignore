@@ -7,3 +7,5 @@ vim/.tags
 # Plugins
 vim/bundle/*
 !vim/bundle/Vundle.vim
+
+tmux/resurrect

@@ -30,9 +30,9 @@ source ~/.fzf.zsh
 eval "$(rbenv init -)"
 
 # Prompt.
-autoload -Uz promptinit
 promptinit
-prompt bart
+prompt giddie
 
 # Complete.
 autoload -U compinit && compinit
+

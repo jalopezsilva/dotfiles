@@ -11,7 +11,7 @@ function! VundleInit()
   nnoremap <leader>ebb :execute "vsplit " . fnameescape(g:BundleBagPath)<CR>
 endfunction
 " }}}
-"
+
 " == Initialize == {{{
 set nocompatible
 filetype off
@@ -197,14 +197,23 @@ let g:sparkupNextMapping = '<c-y>'
 
 " Vim Airline
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
+" TmuxLine
+" let g:tmuxline_preset = 'full'
+let g:tmuxline_preset = {
+      \'a'    : '#S',
+      \'b'    : '#F',
+      \'c'    : '',
+      \'win'  : ['#I', '#W'],
+      \'cwin' : ['#I', '#W'],
+      \'x'    : '#{battery_percentage}',
+      \'y'    : ['%b %d',  '%R'],
+      \'z'    : '#h'}
+"
 " Syntastic
 let g:syntastic_python_checkers = ['python', 'pyflakes', 'pep8']
 let g:syntastic_php_checkers = ['php']
-
-" Bufferline
-let g:bufferline_rotate = 1
-let g:bufferline_fixed_index =  0
 
 " Indent HTML
 let g:html_indent_inctags = "html,body,head,tbody"
@@ -217,6 +226,7 @@ let g:neocomplcache_enable_underbar_completion = 1
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_min_syntax_length = 3
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
 " Gundo
 nnoremap <F6> :GundoToggle<CR>
 let g:gundo_preview_bottom = 1
