@@ -31,8 +31,10 @@ eval "$(rbenv init -)"
 
 # Prompt.
 promptinit
-prompt giddie
+prompt pure
 
 # Complete.
 autoload -U compinit && compinit
 
+export GOPATH=$HOME/Development/Projects/goworkspace
+export PATH=$PATH:$GOPATH/bin

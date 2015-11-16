@@ -283,4 +283,27 @@ if has('conceal')
   set conceallevel=3 concealcursor=nvi
 endif
 
+" Goyo
+
+let g:goyo_width=120
+
+function! s:goyo_enter()
+  silent !tmux set status off
+  set noshowmode
+  set noshowcmd
+  call NumbersDisable()
+  call NumbersRelativeOff()
+  call NeoComplCacheLock()
+endfunction
+
+function! s:goyo_leave()
+  silent !tmux set status on
+  set showmode
+  set showcmd
+  call NumbersEnable()
+  call NeoComplCacheUnlock()
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
   " }}}

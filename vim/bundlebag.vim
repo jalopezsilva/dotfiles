@@ -1,7 +1,6 @@
 " Vundle
 
 Plugin 'gmarik/Vundle.vim'
-
 " Github based plugins.
 
 Plugin 'bling/vim-airline'
@@ -9,6 +8,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'honza/vim-snippets'
+Plugin 'junegunn/goyo.vim'
 Plugin 'kana/vim-textobj-user'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'kien/ctrlp.vim'
@@ -18,6 +18,7 @@ Plugin 'mhinz/vim-startify'
 Plugin 'myusuf3/numbers.vim'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'pangloss/vim-javascript'
+Plugin 'plasticboy/vim-markdown'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'shougo/neocomplcache'
