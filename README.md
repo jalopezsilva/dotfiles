@@ -2,7 +2,7 @@
 Repository used to store dotfiles
 
 ## Overview
-Vim configuration using `Pathogen` as a plugin manager. I try to keep it simple and efficient.
+Vim configuration using `Vundle` as a plugin manager. I try to keep it simple and efficient.
 
 ## Scripts
-Run `make.sh` to install
+Run `make` to install. Will replace your old configuration, be careful.
