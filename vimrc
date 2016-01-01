@@ -3,16 +3,15 @@
 
 " == Vundle == {{{
 function! VundleInit()
-  let g:BundleBagPath="~/.vim/bundlebag.vim"
   set runtimepath+=~/.vim/bundle/Vundle.vim
   call vundle#begin()
   execute 'source' . fnameescape(g:BundleBagPath)
   call vundle#end()
-  nnoremap <leader>ebb :execute "vsplit " . fnameescape(g:BundleBagPath)<CR>
 endfunction
 " }}}
 
 " == Initialize == {{{
+let g:BundleBagPath="~/.vim/bundlebag.vim"
 set nocompatible
 filetype off
 call VundleInit()
@@ -106,6 +105,7 @@ nnoremap / /\v
 cnoremap w!! w !sudo tee > /dev/null %
 cnoremap %s/ %s/\v
 cnoremap >s/ >s/\v
+nnoremap <leader>ebb :execute "vsplit " . fnameescape(g:BundleBagPath)<CR>
 
 " }}}
 
@@ -191,6 +191,9 @@ augroup END
 
 " CtrlP
 nnoremap <leader>bs :CtrlPBuffer<CR>
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\.git$\|\.hg$\|\.svn$\|bower_components$\|dist$\|node_modules$\|env$',
+    \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
 
 " SparkUp
 let g:sparkupNextMapping = '<c-y>'
@@ -212,8 +215,10 @@ let g:tmuxline_preset = {
       \'z'    : '#h'}
 "
 " Syntastic
+let g:syntastic_ruby_checkers=['rubocop', 'mri']
 let g:syntastic_python_checkers = ['python', 'pyflakes', 'pep8']
 let g:syntastic_php_checkers = ['php']
+
 
 " Indent HTML
 let g:html_indent_inctags = "html,body,head,tbody"
@@ -291,6 +296,8 @@ function! s:goyo_enter()
   silent !tmux set status off
   set noshowmode
   set noshowcmd
+  set nocursorline
+  set textwidth=120
   call NumbersDisable()
   call NumbersRelativeOff()
   call NeoComplCacheLock()
@@ -298,6 +305,8 @@ endfunction
 
 function! s:goyo_leave()
   silent !tmux set status on
+  set cursorline
+  set textwidth=80
   set showmode
   set showcmd
   call NumbersEnable()

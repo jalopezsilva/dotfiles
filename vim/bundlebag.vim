@@ -1,6 +1,7 @@
 " Vundle
 
 Plugin 'gmarik/Vundle.vim'
+
 " Github based plugins.
 
 Plugin 'bling/vim-airline'
@@ -14,7 +15,6 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'kien/ctrlp.vim'
 Plugin 'luchermitte/local_vimrc'
 Plugin 'majutsushi/tagbar'
-Plugin 'mhinz/vim-startify'
 Plugin 'myusuf3/numbers.vim'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'pangloss/vim-javascript'
@@ -36,10 +36,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-scripts/lh-vim-lib'
 Plugin 'xolox/vim-misc'
-
-" vim-scripts plugins.
-
-Plugin 'CSApprox'
+Plugin 'tpope/vim-rbenv'
 
 " Colorschemes
 
