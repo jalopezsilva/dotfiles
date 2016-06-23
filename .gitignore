@@ -4,8 +4,10 @@
 vim/.netrwhist
 vim/.tags
 
-# Plugins
+# VIM Plugins
 vim/bundle/*
 !vim/bundle/Vundle.vim
 
-tmux/resurrect
+# Tmux PLugins
+tmux/plugins/*
+!tmux/plugins/tpm
