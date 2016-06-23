@@ -1,4 +1,5 @@
-CONFIG_FILES = vimrc vim tmux.conf gitignore zshrc zpreztorc ctags tmux
+CONFIG_FILES = vimrc vim tmux.conf gitignore zshrc zpreztorc ctags tmux zsh \
+							 zshaliases zshutils
 DOTFILE_DIRECTORY = ${HOME}/dotfiles
 
 build:

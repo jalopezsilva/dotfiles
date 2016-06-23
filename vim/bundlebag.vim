@@ -4,7 +4,6 @@ Plugin 'gmarik/Vundle.vim'
 
 " Github based plugins.
 
-Plugin 'bling/vim-airline'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'godlygeek/tabular'
@@ -30,13 +29,15 @@ Plugin 'tmhedberg/matchit'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rbenv'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-scripts/lh-vim-lib'
 Plugin 'xolox/vim-misc'
-Plugin 'tpope/vim-rbenv'
 
 " Colorschemes
 

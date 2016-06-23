@@ -1,0 +1,22 @@
+#
+# Definition of useful functions
+#
+
+command_exists() {
+  command -v $1 &> /dev/null
+}
+
+is_linux() {
+  system_info=$(uname)
+  if [[ $system_info != "Linux" ]] ; then
+    return 1
+  fi
+}
+
+is_mac() {
+  system_info=$(uname)
+  if [[ $system_info != "Darwin" ]] ; then
+    return 1
+  fi
+}
+

@@ -10,31 +10,35 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+source "${ZDOTDIR:-$HOME}/.zshutils"
+
 # Default editor
 export EDITOR=vim
 export VISUAL=vim
 
-# Aliases
-alias ssh="TERM=screen ssh"
+# Key bindings
+set -o vi
 
 # Hub
-eval $(hub alias -s)
+if command_exists hub; then
+  eval $(hub alias -s)
+fi
 
-# Autojump
-[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+# Autojump j
+[[ -f /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
 
 # Fzf
-source ~/.fzf.zsh
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
-# rbEnv init.
-eval "$(rbenv init -)"
+# rbenv
+if command_exists rbenv; then
+  eval "$(rbenv init -)"
+fi
 
 # Prompt.
-promptinit
-prompt pure
+if command_exists promptinit; then
+  promptinit
+  prompt kylewest
+fi
 
-# Complete.
-autoload -U compinit && compinit
-
-export GOPATH=$HOME/Development/Projects/goworkspace
-export PATH=$PATH:$GOPATH/bin
+source "${ZDOTDIR:-$HOME}/.zshaliases"
