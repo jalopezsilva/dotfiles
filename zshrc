@@ -42,3 +42,5 @@ if command_exists promptinit; then
 fi
 
 source "${ZDOTDIR:-$HOME}/.zshaliases"
+[[ -f "${ZDOTDIR-$HOME}/.zshutils-ext" ]] && source "${ZDOTDIR-$HOME}/.zshutils-ext"
+[[ -f "${ZDOTDIR-$HOME}/.zshaliases-ext" ]] && source "${ZDOTDIR-$HOME}/.zshaliases-ext"

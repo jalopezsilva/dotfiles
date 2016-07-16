@@ -1,4 +1,6 @@
 # Files to be ignored.
+zshutils-ext
+zshaliases-ext
 
 # dotfiles under vim
 vim/.netrwhist
