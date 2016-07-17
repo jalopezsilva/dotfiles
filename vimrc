@@ -72,6 +72,10 @@ set laststatus=2                 " Always show status lines.
 
 set smartindent                  " Indent, Indent, Indent
 set cursorline                   " Highlight the current line.
+set colorcolumn=81               " Shows the current column
+set cm=blowfish2
+
+
 
 " }}}
 
@@ -153,6 +157,8 @@ augroup markdown_group
   autocmd FileType markdown onoremap ah :<c-u>execute "normal! ?^\\(--\\+\\\|==\\+\\)$\r:nohlsearch\rg_vk0"<CR>
   " Email Addresses
   autocmd FileType markdown onoremap in@ :<c-u>execute "normal! /\\(\\w\\\|\\.\\)\\+@\\w\\+.\\w\\+\r:nohlsearch\rviW"<CR>
+  let g:vim_markdown_folding_disabled=1
+  set textwidth=120
 augroup END
 
 augroup filetype_vim
@@ -192,8 +198,8 @@ augroup END
 " CtrlP
 nnoremap <leader>bs :CtrlPBuffer<CR>
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\.git$\|\.hg$\|\.svn$\|bower_components$\|dist$\|node_modules$\|env$',
-    \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
+      \ 'dir':  '\.git$\|\.hg$\|\.svn$\|bower_components$\|dist$\|node_modules$\|env$',
+      \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
 
 " SparkUp
 let g:sparkupNextMapping = '<c-y>'
@@ -247,25 +253,25 @@ let g:startify_custom_header =
 nmap <F8> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 let g:tagbar_type_php  = {
-  \ 'ctagstype' : 'php',
-  \ 'kinds'     : [
+      \ 'ctagstype' : 'php',
+      \ 'kinds'     : [
       \ 'i:interfaces',
       \ 'c:classes',
       \ 'd:constant definitions',
       \ 'f:functions',
       \ 'j:javascript functions:1'
-  \ ]
-\ }
+      \ ]
+      \ }
 
 let g:tagbar_type_javascript  = {
-  \ 'ctagstype' : 'JavaScript',
-  \ 'kinds'     : [
+      \ 'ctagstype' : 'JavaScript',
+      \ 'kinds'     : [
       \ 'v:global variables',
       \ 'c:classes',
       \ 'm:methods',
       \ 'f:functions'
-  \ ]
-\ }
+      \ ]
+      \ }
 
 " Easy Tags
 let g:easytags_dynamic_files = 2
@@ -277,11 +283,11 @@ imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
+      \ "\<Plug>(neosnippet_expand_or_jump)"
+      \: pumvisible() ? "\<C-n>" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: "\<TAB>"
+      \ "\<Plug>(neosnippet_expand_or_jump)"
+      \: "\<TAB>"
 
 " For snippet_complete marker.
 if has('conceal')
@@ -301,6 +307,8 @@ function! s:goyo_enter()
   call NumbersDisable()
   call NumbersRelativeOff()
   call NeoComplCacheLock()
+  call NeoComplCacheDisable()
+  call NumbersRelativeOff()
 endfunction
 
 function! s:goyo_leave()
@@ -311,8 +319,9 @@ function! s:goyo_leave()
   set showcmd
   call NumbersEnable()
   call NeoComplCacheUnlock()
+  call NeoComplCacheEnable()
 endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
-  " }}}
+" }}}
