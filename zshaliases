@@ -16,3 +16,4 @@ fi
 
 # Properly set TERM before SSHing.
 alias ssh="TERM=screen ssh"
+alias gtypist="gtypist --no-skip"

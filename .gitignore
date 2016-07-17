@@ -11,3 +11,4 @@ vim/bundle/*
 # Tmux PLugins
 tmux/plugins/*
 !tmux/plugins/tpm
+tmux/resurrect

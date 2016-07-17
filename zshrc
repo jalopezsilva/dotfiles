@@ -33,6 +33,7 @@ fi
 # rbenv
 if command_exists rbenv; then
   eval "$(rbenv init -)"
+  export PATH="$HOME/.rbenv/bin:$PATH"
 fi
 
 # Prompt.
