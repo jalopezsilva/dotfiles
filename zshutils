@@ -1,6 +1,6 @@
-#
-# Definition of useful functions
-#
+# Utils
+
+# Functions {{{
 
 command_exists() {
   command -v $1 &> /dev/null
@@ -20,3 +20,10 @@ is_mac() {
   fi
 }
 
+log_error() {
+  >&2 echo "[ERROR] $@"
+}
+
+# }}}
+
+# vim: set foldmethod=marker:

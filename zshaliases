@@ -1,19 +1,7 @@
-#
-# Definition of useful aliases.
-#
+# Aliases
 
-# Useful commands for clipboard copy/paste.
-
-if command_exists xclip; then
-	alias clipcopy='xclip -selection c'
-	alias clippaste='xclip -selection clipboard -o'
-fi
-
-if command_exists pbcopy; then
-	alias clipcopy='pbcopy'
-	alias clippaste='pbaste'
-fi
-
-# Properly set TERM before SSHing.
+# Set TERM before ssh
 alias ssh="TERM=screen ssh"
+
+# gtypist, no cheating.
 alias gtypist="gtypist --no-skip"
