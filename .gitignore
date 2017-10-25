@@ -6,9 +6,10 @@ zshaliases-ext
 vim/.netrwhist
 vim/.tags
 
-# VIM Plugins
+# vim files
 vim/bundle/*
 !vim/bundle/Vundle.vim
+vim/externalinit.vim
 
 # Tmux PLugins
 tmux/plugins/*
