@@ -3,5 +3,10 @@
 # Set TERM before ssh
 alias ssh="TERM=screen ssh"
 
-# gtypist, no cheating.
+# gtypist, no cheating
 alias gtypist="gtypist --no-skip"
+
+# Start vim through fzf
+if command_exists fzf; then
+  alias vimmeup='vim -O $(fzf -m)'
+fi
