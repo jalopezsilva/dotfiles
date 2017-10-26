@@ -98,46 +98,83 @@ set cm=blowfish2                 " Crypt method.
 
 set lazyredraw                   " Don't redraw on macro execution.
 
+set splitbelow                   " Opening new buffers to the right or below.
+set splitright
+
 colorscheme Tomorrow-Night       " Colorscheme.
 
 " }}}
 
 " == Regular Mappings == {{{
+
+" Leader definition.
 let mapleader =","
+
+" Local Leader definition.
 let maplocalleader ="\\"
+
+" Edit and source my VIMRC.
 nnoremap <silent> <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <silent> <leader>sv :so $MYVIMRC<CR>
-noremap <C-h> <C-w>h
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
-noremap <Left> <Nop>
-noremap <Right> <Nop>
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-nnoremap Q <Nop>
+
+" Clear search.
 nnoremap <silent> <leader>/ :nohlsearch<CR>
-nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+
+" Remove trailing white spaces.
 nnoremap <Leader>rtw :%s/\s\+$//e<CR><C-O>:let @/=""<CR>
+
+" Toggle fold.
 inoremap <F9> <C-O>za
 nnoremap <F9> za
 onoremap <F9> <C-C>za
 vnoremap <F9> zf
+
+" Use very magic search.
+nnoremap / /\v
+cnoremap %s/ %s/\v
+cnoremap >s/ >s/\v
+
+" Useful for forcing sudo.
+cnoremap w!! w !sudo tee > /dev/null %
+
+" Edit bundlebag.
+nnoremap <leader>ebb :execute "vsplit " . fnameescape(g:BundleBagPath)<CR>
+
+" Change directories to the current file.
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+
+" Extend in<> movement to line-wise operation.
 onoremap in( :<c-u>normal! 0f(vi(<cr>
 onoremap in{ :<c-u>normal! 0f{vi{<cr>
 onoremap in[ :<c-u>normal! 0f[vi[<cr>
-nnoremap / /\v
-cnoremap w!! w !sudo tee > /dev/null %
-cnoremap %s/ %s/\v
-cnoremap >s/ >s/\v
-nnoremap <leader>ebb :execute "vsplit " . fnameescape(g:BundleBagPath)<CR>
+
+" Consistent end-of-line behavior.
+nnoremap Y y$
+
+" Home row escaping.
 inoremap <esc> <nop>
 inoremap jk <esc>
+inoremap kj <esc>
+
+" Easier pane navigation.
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
+" Disable use of arrows.
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+
+" No, never.
+nnoremap Q <Nop>
 
 " }}}
 
 " == FileType Specific Mappings == {{{
-"
+
 " Autocommands
 autocmd GUIEnter * set visualbell t_vb=
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -160,16 +197,6 @@ augroup filetype_html
   autocmd FileType html :iabbrev <buffer> & &amp;
   autocmd FileType html nnoremap <buffer> <localleader>f Vatzf
   autocmd FileType html nnoremap <buffer> <F5> :!open %<CR>
-augroup END
-
-" Drupal *.module and *.install files.
-augroup module
-  autocmd BufRead,BufNewFile *.module set filetype=php
-  autocmd BufRead,BufNewFile *.install set filetype=php
-  autocmd BufRead,BufNewFile *.test set filetype=php
-  autocmd BufRead,BufNewFile *.inc set filetype=php
-  autocmd BufRead,BufNewFile *.profile set filetype=php
-  autocmd BufRead,BufNewFile *.view set filetype=php
 augroup END
 
 augroup markdown_group
@@ -257,15 +284,6 @@ let g:syntastic_php_checkers = ['php']
 " Indent HTML
 let g:html_indent_inctags = "html,body,head,tbody"
 
-" Neocomplcache
-let g:acp_enableAtStartup = 0
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_max_list = 10
-let g:neocomplcache_enable_underbar_completion = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_min_syntax_length = 3
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
 " Gundo
 nnoremap <F6> :GundoToggle<CR>
 let g:gundo_preview_bottom = 1
@@ -305,15 +323,7 @@ let g:tagbar_type_javascript  = {
 let g:easytags_dynamic_files = 2
 let g:easytags_auto_highlight = 0
 
-" For snippet_complete marker.
-if has('conceal')
-  set conceallevel=3 concealcursor=nvi
-endif
-
 " Goyo
-
-" let g:goyo_width=120
-
 function! s:goyo_enter()
   silent !tmux set status off
 endfunction
@@ -325,5 +335,9 @@ endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
+" Syntastic
 let g:pymode_lint_cwindow = 0
+
+" UtilSnips
+let g:UltiSnipsExpandTrigger="<c-j>"
 " }}}
