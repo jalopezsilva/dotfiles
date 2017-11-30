@@ -34,7 +34,10 @@ export EDITOR=vim
 export VISUAL=vim
 
 # Key bindings
-bindkey -e
+bindkey -v
+
+# Bind escape bindings to terminal
+bindkey -M viins 'jk' vi-cmd-mode
 
 # Prompt.
 if command_exists promptinit; then
