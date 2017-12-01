@@ -171,6 +171,10 @@ noremap <Down> <Nop>
 " No, never.
 nnoremap Q <Nop>
 
+" Quickfix.
+nnoremap <leader>cq :cclose<CR>
+
+
 " }}}
 
 " == FileType Specific Mappings == {{{

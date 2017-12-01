@@ -1,9 +1,8 @@
-CONFIG_FILES = vimrc vim tmux.conf gitignore zshrc zpreztorc ctags tmux zsh \
-							 zshaliases zshutils
-DOTFILE_DIRECTORY = ${HOME}/dotfiles
+STOW_DIRECTORIES = vim tmux zsh other
 
-build:
-	@$(foreach	file, ${CONFIG_FILES},                                 \
-							rm -rf ${HOME}/.${file};                               \
-							ln -sfv ${DOTFILE_DIRECTORY}/${file} ${HOME}/.${file}; \
-		)
+install:
+	@$(foreach 	directory, ${STOW_DIRECTORIES}, stow ${directory};)
+
+uninstall:
+	@$(foreach 	directory, ${STOW_DIRECTORIES}, stow --delete ${directory};)
+

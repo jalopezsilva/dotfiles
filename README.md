@@ -1,8 +1,26 @@
-# Dotfiles Repo
-Repository used to store dotfiles
+# dotfiles repository
 
-## Overview
-Vim configuration using `Vundle` as a plugin manager. I try to keep it simple and efficient.
+## Installation
 
-## Scripts
-Run `make` to install. Will replace your old configuration, be careful.
+The dotfiles installation relies on `stow` and `make`. You should clone the
+package on your home directory and change your current directory to it before
+installing.
+
+To install:
+```
+make install
+```
+
+To uninstall:
+```
+make uninstall
+```
+
+*Note:* Installation might fail if you have dotfiles that will be replaced by
+the installation process. Remove them before installing.
+
+## Dependencies
+
+The vim configuration relies on [Vundle](https://github.com/VundleVim/Vundle.vim) as a plugin manager.
+
+The tmux configuration relies on [tpm](https://github.com/tmux-plugins/tpm) as a plugin manager.

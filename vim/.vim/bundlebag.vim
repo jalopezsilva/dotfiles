@@ -6,17 +6,17 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'tpope/vim-sensible'                  " Sensible vim defaults.
 
+Plugin 'sheerun/vim-polyglot'  " Language pack for vim
+
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'junegunn/goyo.vim'
 Plugin 'kana/vim-textobj-user'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'myusuf3/numbers.vim'
 Plugin 'nelstrom/vim-textobj-rubyblock'
-Plugin 'pangloss/vim-javascript'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/syntastic'
@@ -32,7 +32,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-scripts/lh-vim-lib'
 Plugin 'xolox/vim-misc'
 Plugin 'klen/python-mode'

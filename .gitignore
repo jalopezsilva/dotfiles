@@ -1,17 +1,17 @@
 # Files to be ignored.
-zshutils-ext
-zshaliases-ext
+zsh/.zshutils-ext
+zsh/.zshaliases-ext
 
 # dotfiles under vim
-vim/.netrwhist
-vim/.tags
+vim/.vim/.netrwhist
+vim/.vim/.tags
 
 # vim files
-vim/bundle/*
-!vim/bundle/Vundle.vim
-vim/externalinit.vim
+vim/.vim/bundle/*
+!vim/.vim/bundle/Vundle.vim
+vim/.vim/externalinit.vim
 
 # Tmux PLugins
-tmux/plugins/*
-!tmux/plugins/tpm
-tmux/resurrect
+tmux/.tmux/plugins/*
+!tmux/.tmux/plugins/tpm
+tmux/.tmux/resurrect
