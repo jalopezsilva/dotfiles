@@ -178,6 +178,12 @@ nnoremap Q <Nop>
 " Quickfix.
 nnoremap <leader>cq :cclose<CR>
 
+" Search Web.
+noremap <leader>ww :Google<CR>
+
+" Trigger Ack more easily.
+noremap <leader>ag :Ack<CR>
+
 " }}}
 
 " == FileType Specific Mappings == {{{
