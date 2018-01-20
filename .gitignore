@@ -7,11 +7,21 @@ vim/.vim/.netrwhist
 vim/.vim/.tags
 
 # vim files
+vim/.vim/externalinit.vim
 vim/.vim/bundle/*
 !vim/.vim/bundle/Vundle.vim
-vim/.vim/externalinit.vim
 
 # Tmux PLugins
 tmux/.tmux/plugins/*
 !tmux/.tmux/plugins/tpm
 tmux/.tmux/resurrect
+
+# Eclim
+vim/.vim/eclim
+vim/.vim/plugin
+
+# Undodir
+vim/.vim/undodir
+
+# TODO file.
+TODO

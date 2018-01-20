@@ -24,6 +24,7 @@ let g:BundleBagPath = "~/.vim/bundlebag.vim"
 " External non-versioned init file (optional).
 let g:ExternalInitPath = "~/.vim/externalinit.vim"
 
+
 " Initialize Vundle
 set nocompatible
 filetype off
@@ -101,7 +102,13 @@ set lazyredraw                   " Don't redraw on macro execution.
 set splitbelow                   " Opening new buffers to the right or below.
 set splitright
 
-colorscheme Tomorrow-Night       " Colorscheme.
+set undofile                     " Undo forever.
+set undodir=~/.vim/undodir
+
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background     " base16 colorscheme
+endif
 
 " }}}
 
@@ -140,9 +147,6 @@ cnoremap w!! w !sudo tee > /dev/null %
 " Edit bundlebag.
 nnoremap <leader>ebb :execute "vsplit " . fnameescape(g:BundleBagPath)<CR>
 
-" Change directories to the current file.
-nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
-
 " Extend in<> movement to line-wise operation.
 onoremap in( :<c-u>normal! 0f(vi(<cr>
 onoremap in{ :<c-u>normal! 0f{vi{<cr>
@@ -174,56 +178,41 @@ nnoremap Q <Nop>
 " Quickfix.
 nnoremap <leader>cq :cclose<CR>
 
-
 " }}}
 
 " == FileType Specific Mappings == {{{
 
-" Autocommands
-autocmd GUIEnter * set visualbell t_vb=
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
-
-if has("autocmd") && exists("+omnifunc")
-  autocmd Filetype *
-        \	if &omnifunc == "" |
-        \	 setlocal omnifunc=syntaxcomplete#Complete |
-        \	endif
-endif
-
+" Correct spelling on gitcommit.
 autocmd FileType gitcommit setlocal spell
+
+" HTML files.
 augroup filetype_html
   autocmd!
   autocmd FileType html :iabbrev <buffer> & &amp;
   autocmd FileType html nnoremap <buffer> <localleader>f Vatzf
   autocmd FileType html nnoremap <buffer> <F5> :!open %<CR>
+  let g:html_indent_inctags = "html,body,head,tbody"
 augroup END
 
+" Markdown files.
 augroup markdown_group
   autocmd!
-  " Inside Heading
-  autocmd FileType markdown onoremap ih :<c-u>execute "normal! ?^\\(--\\+\\\|==\\+\\)$\r:nohlsearch\rkvg_"<CR>
-  " Around Heading
-  autocmd FileType markdown onoremap ah :<c-u>execute "normal! ?^\\(--\\+\\\|==\\+\\)$\r:nohlsearch\rg_vk0"<CR>
-  " Email Addresses
-  autocmd FileType markdown onoremap in@ :<c-u>execute "normal! /\\(\\w\\\|\\.\\)\\+@\\w\\+.\\w\\+\r:nohlsearch\rviW"<CR>
   let g:vim_markdown_folding_disabled=1
 augroup END
 
+" vim filetype.
 augroup filetype_vim
   autocmd!
   autocmd FileType vim setlocal foldmethod=marker
 augroup END
 
+" java filetype.
 augroup filetype_java
   autocmd!
   autocmd FileType java setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
 augroup END
 
+" python filetype.
 augroup filetype_python
   autocmd!
   autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 textwidth=80
@@ -231,6 +220,7 @@ augroup filetype_python
   autocmd FileType python setlocal nosmartindent
 augroup END
 
+" php filetype.
 augroup filetype_php
   autocmd!
   autocmd FileType php setlocal foldmethod=syntax foldlevel=1 foldnestmax=2 foldcolumn=3
@@ -240,11 +230,13 @@ augroup filetype_php
   let g:PHP_outdentphpescape = 1
 augroup END
 
+" js filetype.
 augroup filetype_javascript
   autocmd!
   autocmd FileType javascript setlocal foldmethod=syntax foldlevel=0 foldnestmax=1 foldcolumn=4
 augroup END
 
+" make filetype.
 augroup filetype_make
   autocmd!
   autocmd FileType make setlocal noexpandtab
@@ -254,21 +246,25 @@ augroup END
 
 " == Plugin Settings == {{{
 
-" CtrlP
-nnoremap <leader>bs :CtrlPBuffer<CR>
-let g:ctrlp_custom_ignore = {
+" Ack
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep' " Use ag if available.
+endif
+
+
+" CtrlP - Buffer and file management.
+nnoremap <leader>bs :CtrlPBuffer<CR> let g:ctrlp_custom_ignore = {
       \ 'dir':  '\.git$\|\.hg$\|\.svn$\|bower_components$\|dist$\|node_modules$\|env$',
       \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
 
-" SparkUp
+" SparkUp - Easy editing of HTML.
 let g:sparkupNextMapping = '<c-y>'
 
-" Vim Airline
+" Vim Airline.
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
 " TmuxLine
-" let g:tmuxline_preset = 'full'
 let g:tmuxline_preset = {
       \'a'    : '#S',
       \'b'    : '#F',
@@ -278,61 +274,24 @@ let g:tmuxline_preset = {
       \'x'    : '#{battery_percentage}',
       \'y'    : ['%b %d',  '%R'],
       \'z'    : '#h'}
-"
+
 " Syntastic
 let g:syntastic_ruby_checkers=['rubocop', 'mri']
 let g:syntastic_python_checkers = ['python', 'pyflakes', 'pep8']
 let g:syntastic_php_checkers = ['php']
 
-
-" Indent HTML
-let g:html_indent_inctags = "html,body,head,tbody"
-
-" Gundo
+" Gundo - Undo tree visualized.
 nnoremap <F6> :GundoToggle<CR>
 let g:gundo_preview_bottom = 1
 
-"" DelimitMate
-let delimitMate_matchpairs = "(:),[:],{:}"
-
-"" Startify
-let g:startify_custom_header =
-      \ map(split(system('fortune -s | cowsay -f moose'), '\n'), '"   ". v:val') + ['','']
-
-"" Tagbar
-nmap <F8> :TagbarToggle<CR>
-let g:tagbar_autofocus = 1
-let g:tagbar_type_php  = {
-      \ 'ctagstype' : 'php',
-      \ 'kinds'     : [
-      \ 'i:interfaces',
-      \ 'c:classes',
-      \ 'd:constant definitions',
-      \ 'f:functions',
-      \ 'j:javascript functions:1'
-      \ ]
-      \ }
-
-let g:tagbar_type_javascript  = {
-      \ 'ctagstype' : 'JavaScript',
-      \ 'kinds'     : [
-      \ 'v:global variables',
-      \ 'c:classes',
-      \ 'm:methods',
-      \ 'f:functions'
-      \ ]
-      \ }
-
-" Easy Tags
-let g:easytags_dynamic_files = 2
-let g:easytags_auto_highlight = 0
-
 " Goyo
 function! s:goyo_enter()
+  call NumbersDisable()
   silent !tmux set status off
 endfunction
 
 function! s:goyo_leave()
+  call NumbersEnable()
   silent !tmux set status on
 endfunction
 
@@ -344,4 +303,8 @@ let g:pymode_lint_cwindow = 0
 
 " UtilSnips
 let g:UltiSnipsExpandTrigger="<c-j>"
+
+" YouCompleteMe
+let g:EclimCompletionMethod = 'omnifunc'
+
 " }}}

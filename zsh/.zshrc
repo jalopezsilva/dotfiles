@@ -53,6 +53,12 @@ fi
 
 # Tools {{{
 
+# base16-shell
+if [[ -d ~/.config/base16-shell ]]; then
+  BASE16_SHELL=$HOME/.config/base16-shell/
+  eval "$($BASE16_SHELL/profile_helper.sh)"
+fi
+
 # vim
 if ! command_exists vim; then
   log_error 'Missing critical tool: vim'

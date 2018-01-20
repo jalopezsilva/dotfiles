@@ -1,48 +1,83 @@
 " Vundle
 
+
 Plugin 'gmarik/Vundle.vim'
 
-" Github based plugins {{{
 
-Plugin 'tpope/vim-sensible'                  " Sensible vim defaults.
+" Plugins {{{
 
-Plugin 'sheerun/vim-polyglot'  " Language pack for vim
 
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'edkolev/tmuxline.vim'
-Plugin 'godlygeek/tabular'
-Plugin 'junegunn/goyo.vim'
-Plugin 'kana/vim-textobj-user'
-Plugin 'kien/ctrlp.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'myusuf3/numbers.vim'
-Plugin 'nelstrom/vim-textobj-rubyblock'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'rking/ag.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'sjl/gundo.vim'
-Plugin 'sjl/vim-sparkup'
-Plugin 'tmhedberg/matchit'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rbenv'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'vim-airline/vim-airline'
+Plugin 'tpope/vim-sensible'             " Sensible vim defaults.
+
+
+" Languages
+
+
+Plugin 'klen/python-mode'               " Python mode for vim
+Plugin 'sheerun/vim-polyglot'           " Language pack for vim
+Plugin 'sjl/vim-sparkup'                " Easy generate HTML.
+Plugin 'tmux-plugins/vim-tmux'          " tmux filetype.
+
+
+" Autocompletion
+
+
+Plugin 'SirVer/ultisnips'               " Utilsnips
+Plugin 'Valloric/YouCompleteMe'         " YCM.
+Plugin 'honza/vim-snippets'             " More snippets.
+Plugin 'jiangmiao/auto-pairs'           " Automatically generate pairs.
+
+
+" Commands, Movement.
+
+
+Plugin 'godlygeek/tabular'              " Godly tabulation.
+Plugin 'tommcdo/vim-exchange'           " Exchange motion. {cx}
+Plugin 'tpope/vim-abolish'              " Subvert goodness.
+Plugin 'tpope/vim-commentary'           " Commenting.
+Plugin 'tpope/vim-fugitive'             " Awesome git integration.
+Plugin 'tpope/vim-surround'             " Wrap around text easily.
+Plugin 'tpope/vim-unimpaired'           " Must-have mappings.
+
+
+" IDE-like improvements.
+
+
+Plugin 'junegunn/goyo.vim'              " Lovely text editing.
+Plugin 'myusuf3/numbers.vim'            " Toggle between num, relativenum.
+Plugin 'scrooloose/syntastic'           " Lint, Style, etc.
+Plugin 'sjl/gundo.vim'                  " Undo tree magic.
+Plugin 'vim-airline/vim-airline'        " Beautiful status line.
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'vim-scripts/lh-vim-lib'
-Plugin 'xolox/vim-misc'
-Plugin 'klen/python-mode'
-Plugin 'https://github.com/cespare/vim-toml'
-Plugin 'tmux-plugins/vim-tmux'               " tmux filetype.
 
-Plugin 'SirVer/ultisnips'                    " Utilsnips
-Plugin 'honza/vim-snippets'
-" }}}
+
+" vim Extensions
+
+
+Plugin 'LucHermitte/lh-vim-lib'         " vim library.
+Plugin 'kana/vim-textobj-user'          " vim text objects.
+Plugin 'nelstrom/vim-textobj-rubyblock' " Ruby block definition.
+Plugin 'tmhedberg/matchit'              " Extend % operation.
+Plugin 'tpope/vim-repeat'               " Extend '.' operator.
+
+
+" Tmux integration
+
+
+Plugin 'christoomey/vim-tmux-navigator' " Easy pane navigation.
+Plugin 'edkolev/tmuxline.vim'           " Tmux status line generator.
+
+
+" Navigation
+
+
+Plugin 'kien/ctrlp.vim'                 " Buffer/File navigation.
+Plugin 'mileszs/ack.vim'                " Buffer/file search.
+
 
 " Colorschemes
 
-Plugin 'chriskempson/vim-tomorrow-theme'
-Plugin 'nelstrom/vim-blackboard.git'
+
+Plugin 'chriskempson/base16-vim'        " Base16 colorschemes.
+
+" }}}
