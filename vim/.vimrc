@@ -184,6 +184,9 @@ noremap <leader>ww :Google<CR>
 " Trigger Ack more easily.
 noremap <leader>ag :Ack<CR>
 
+" Search for highlited.
+vnoremap <expr> <leader>* 'y/\V'.escape(@",'\').'<CR>'
+
 " }}}
 
 " == FileType Specific Mappings == {{{
