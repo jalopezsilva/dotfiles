@@ -219,6 +219,11 @@ augroup END
 augroup filetype_java
   autocmd!
   autocmd FileType java setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
+  autocmd FileType java nnoremap <buffer> <leader>jd :JavaDocComment<CR>
+  autocmd FileType java nnoremap <buffer> <leader>jft :JavaFindTest<CR>
+  autocmd FileType java nnoremap <buffer> <leader>ji :JavaImport<CR>
+  autocmd FileType java nnoremap <buffer> <leader>jm :JavaImpl<CR>
+  autocmd FileType java nnoremap <buffer> <leader>jt :JUnit<CR>
 augroup END
 
 " python filetype.
