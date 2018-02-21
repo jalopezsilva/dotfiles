@@ -267,8 +267,9 @@ endif
 
 
 " CtrlP - Buffer and file management.
-nnoremap <leader>bs :CtrlPBuffer<CR> let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\.git$\|\.hg$\|\.svn$\|bower_components$\|dist$\|node_modules$\|env$',
+nnoremap <leader>bs :CtrlPBuffer<CR>
+let g:ctrlp_custom_ignore = {
+      \ 'dir':  '\.git$\|\.hg$\|\.svn$\|bower_components$\|dist$\|node_modules$\|env$\|target$',
       \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
 
 " SparkUp - Easy editing of HTML.
@@ -320,5 +321,6 @@ let g:UltiSnipsExpandTrigger="<c-j>"
 
 " YouCompleteMe
 let g:EclimCompletionMethod = 'omnifunc'
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " }}}
