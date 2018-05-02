@@ -322,5 +322,8 @@ let g:UltiSnipsExpandTrigger="<c-j>"
 " YouCompleteMe
 let g:EclimCompletionMethod = 'omnifunc'
 let g:ycm_autoclose_preview_window_after_insertion = 1
-
+nnoremap <leader>c :YcmForceCompileAndDiagnostics<CR>
+nnoremap <leader>pg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <leader>pd :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>pc :YcmCompleter GoToDeclaration<CR>
 " }}}
