@@ -1,4 +1,4 @@
-STOW_DIRECTORIES = vim tmux zsh other
+STOW_DIRECTORIES = vim tmux zsh other config
 
 install:
 	@$(foreach 	directory, ${STOW_DIRECTORIES}, stow ${directory};)
