@@ -70,8 +70,8 @@ if ! command_exists tmux; then
 fi
 
 # j
-if [[ -f ~/.autojump/etc/profile.d/autojump.sh ]] ; then
-  source ~/.autojump/etc/profile.d/autojump.sh ]
+if [[ -f /etc/profile.d/autojump.zsh ]] ; then
+  source /etc/profile.d/autojump.zsh
 else
   log_error 'Missing critical tool: autojump'
 fi
