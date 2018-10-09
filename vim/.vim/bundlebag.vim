@@ -13,7 +13,6 @@ Plugin 'tpope/vim-sensible'              " Sensible vim defaults.
 " Languages
 
 
-Plugin 'klen/python-mode'                " Python mode for vim
 Plugin 'sheerun/vim-polyglot'            " Language pack for vim
 Plugin 'sjl/vim-sparkup'                 " Easy generate HTML.
 Plugin 'tmux-plugins/vim-tmux'           " tmux filetype.
@@ -23,9 +22,11 @@ Plugin 'tmux-plugins/vim-tmux'           " tmux filetype.
 
 
 Plugin 'SirVer/ultisnips'                " Utilsnips
-Plugin 'Valloric/YouCompleteMe'          " YCM.
 Plugin 'honza/vim-snippets'              " More snippets.
 Plugin 'jiangmiao/auto-pairs'            " Automatically generate pairs.
+Plugin 'Shougo/deoplete.nvim'            " Fancy autocompletion engine.
+Plugin 'roxma/nvim-yarp'                 " Compatibility layer for nvim
+Plugin 'roxma/vim-hug-neovim-rpc'        " Compatibility layer for nvim
 
 
 " Commands, Movement.
@@ -47,7 +48,6 @@ Plugin 'tpope/vim-unimpaired'            " Must-have mappings.
 
 Plugin 'junegunn/goyo.vim'               " Lovely text editing.
 Plugin 'myusuf3/numbers.vim'             " Toggle between num, relativenum.
-Plugin 'scrooloose/syntastic'            " Lint, Style, etc.
 Plugin 'sjl/gundo.vim'                   " Undo tree magic.
 Plugin 'vim-airline/vim-airline'         " Beautiful status line.
 Plugin 'vim-airline/vim-airline-themes'
@@ -68,7 +68,7 @@ Plugin 'tpope/vim-repeat'                " Extend '.' operator.
 
 " Tmux integration
 
-
+"
 Plugin 'christoomey/vim-tmux-navigator'  " Easy pane navigation.
 Plugin 'edkolev/tmuxline.vim'            " Tmux status line generator.
 
@@ -85,5 +85,9 @@ Plugin 'nelstrom/vim-visual-star-search' " Star for visual search.
 
 
 Plugin 'chriskempson/base16-vim'         " Base16 colorschemes.
+Plugin 'xterm-color-table.vim'
 
-"
+
+" Lints
+
+Plugin 'w0rp/ale'                         " Asynchronous Lint Engine.

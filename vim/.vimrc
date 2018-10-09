@@ -290,11 +290,6 @@ let g:tmuxline_preset = {
       \'y'    : ['%b %d',  '%R'],
       \'z'    : '#h'}
 
-" Syntastic
-let g:syntastic_ruby_checkers=['rubocop', 'mri']
-let g:syntastic_python_checkers = ['python', 'pyflakes', 'pep8']
-let g:syntastic_php_checkers = ['php']
-
 " Gundo - Undo tree visualized.
 nnoremap <F6> :GundoToggle<CR>
 let g:gundo_preview_bottom = 1
@@ -313,17 +308,27 @@ endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
-" Syntastic
-let g:pymode_lint_cwindow = 0
+" ALE
 
-" UtilSnips
-let g:UltiSnipsExpandTrigger="<c-j>"
+" Autocompletion engine
+let g:deoplete#enable_at_startup = 1
 
-" YouCompleteMe
-let g:EclimCompletionMethod = 'omnifunc'
-let g:ycm_autoclose_preview_window_after_insertion = 1
-nnoremap <leader>c :YcmForceCompileAndDiagnostics<CR>
-nnoremap <leader>pg :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nnoremap <leader>pd :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>pc :YcmCompleter GoToDeclaration<CR>
+nnoremap <C-]> :ALEGoToDefinition<CR>
+nnoremap T :ALEHover<CR>
+nnoremap <c-y> :ALEInfo<CR>
+nnoremap <leader>fr :ALEFindReferences<CR>
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+let g:airline#extensions#ale#enabled = 1
+
+let g:ale_linters = {'python': ['pyls']}
+
+" Workaround required based on the colorscheme used.
+highlight ALEWarning ctermbg=236
+highlight ALEError ctermbg=240
+
 " }}}
