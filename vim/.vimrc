@@ -10,25 +10,25 @@ function! SourceFile(filePath)
   endif
 endfunction
 
-" Loads Vundle using the file provided as argument.
-function! VundleInit(filePath)
-  set runtimepath+=~/.vim/bundle/Vundle.vim
-  call vundle#begin()
+" Loads Plugins using the file and directory specified.
+function! PluginInit(filePath, pluginDir)
+  call plug#begin(a:pluginDir)
   call SourceFile(a:filePath)
-  call vundle#end()
+  call plug#end()
 endfunction
 
 " Bundlebag file.
-let g:BundleBagPath = "~/.vim/bundlebag.vim"
+let g:PluginsDefPath = "~/.vim/plugins.vim"
+let g:PluginDir = "~/.vim/plugged"
 
 " External non-versioned init file (optional).
 let g:ExternalInitPath = "~/.vim/externalinit.vim"
 
 
-" Initialize Vundle
+" Initialize Plugins
 set nocompatible
 filetype off
-call VundleInit(g:BundleBagPath)
+call PluginInit(g:PluginsDefPath, g:PluginDir)
 call SourceFile(g:ExternalInitPath)
 filetype plugin indent on
 syntax on
@@ -144,8 +144,8 @@ cnoremap >s/ >s/\v
 " Useful for forcing sudo.
 cnoremap w!! w !sudo tee > /dev/null %
 
-" Edit bundlebag.
-nnoremap <leader>ebb :execute "vsplit " . fnameescape(g:BundleBagPath)<CR>
+" Edit plugins definition.
+nnoremap <leader>ep :execute "vsplit " . fnameescape(g:PluginsDefPath)<CR>
 
 " Extend in<> movement to line-wise operation.
 onoremap in( :<c-u>normal! 0f(vi(<cr>
@@ -181,11 +181,11 @@ nnoremap <leader>cq :cclose<CR>
 " Search Web.
 noremap <leader>ww :Google<CR>
 
-" Trigger Ack more easily.
-noremap <leader>ag :Ack<CR>
-
-" Search for highlited.
+" Search for highlighted.
 vnoremap <expr> <leader>* 'y/\V'.escape(@",'\').'<CR>'
+
+" Search for word under cursor
+nnoremap <leader>rg :Rg <C-R><C-W><CR>
 
 " }}}
 
@@ -260,20 +260,9 @@ augroup END
 
 " == Plugin Settings == {{{
 
-" Ack
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep' " Use ag if available.
-endif
-
-
-" CtrlP - Buffer and file management.
-nnoremap <leader>bs :CtrlPBuffer<CR>
-let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\.git$\|\.hg$\|\.svn$\|bower_components$\|dist$\|node_modules$\|env$\|target$',
-      \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
-
-" SparkUp - Easy editing of HTML.
-let g:sparkupNextMapping = '<c-y>'
+" FZF - Buffer and file management.
+nnoremap <leader>bs :Buffers<CR>
+nnoremap <C-P> :Files<CR>
 
 " Vim Airline.
 let g:airline_powerline_fonts = 1
@@ -319,16 +308,23 @@ nnoremap <c-y> :ALEInfo<CR>
 nnoremap <leader>fr :ALEFindReferences<CR>
 
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 let g:airline#extensions#ale#enabled = 1
 
 let g:ale_linters = {'python': ['pyls']}
 
-" Workaround required based on the colorscheme used.
 highlight ALEWarning ctermbg=236
 highlight ALEError ctermbg=240
+
+
+" Easy Align
+" Start interactive EasyAlign in visual mode.
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object.
+nmap ga <Plug>(EasyAlign)"
+
 
 " }}}

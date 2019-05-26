@@ -8,8 +8,7 @@ vim/.vim/.tags
 
 # vim files
 vim/.vim/externalinit.vim
-vim/.vim/bundle/*
-!vim/.vim/bundle/Vundle.vim
+vim/.vim/plugged/*
 
 # Tmux PLugins
 tmux/.tmux/plugins/*
