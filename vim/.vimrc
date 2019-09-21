@@ -67,6 +67,12 @@ if has('mouse')
   set mouse=a                    " Enables use of mouse (all modes).
 endif
 
+if has("mouse_sgr")              " Fixes use of mouse on right most buffer.
+  set ttymouse=sgr
+else
+  set ttymouse=xterm2
+end
+
 set pastetoggle=<F2>             " Paste toggle.
 
 set hidden                       " Allow hidden buffers.
@@ -106,7 +112,6 @@ set undofile                     " Undo forever.
 set undodir=~/.vim/undodir
 
 if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
   source ~/.vimrc_background     " base16 colorscheme
 endif
 
@@ -187,6 +192,10 @@ vnoremap <expr> <leader>* 'y/\V'.escape(@",'\').'<CR>'
 " Search for word under cursor
 nnoremap <leader>rg :Rg <C-R><C-W><CR>
 
+" Easy saving, quitting.
+noremap <leader>w :w<CR>
+noremap <leader>q :q<CR>
+
 " }}}
 
 " == FileType Specific Mappings == {{{
@@ -254,6 +263,12 @@ augroup END
 augroup filetype_make
   autocmd!
   autocmd FileType make setlocal noexpandtab
+augroup END
+
+augroup filetype_hg
+  autocmd!
+  autocmd FileType hgcommit setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+  autocmd FileType hgcommit setlocal spell
 augroup END
 
 " }}}

@@ -30,10 +30,8 @@ Plug 'tommcdo/vim-exchange'            " Exchange motion. {cx}
 Plug 'tpope/vim-abolish'               " Subvert goodness.
 Plug 'tpope/vim-commentary'            " Commenting.
 Plug 'tpope/vim-eunuch'                " Unix utils.
-Plug 'tpope/vim-fugitive'              " Awesome git integration.
 Plug 'tpope/vim-surround'              " Wrap around text easily.
 Plug 'tpope/vim-unimpaired'            " Must-have mappings.
-
 
 " IDE-like improvements.
 
@@ -43,6 +41,9 @@ Plug 'myusuf3/numbers.vim'             " Toggle between num, relativenum.
 Plug 'sjl/gundo.vim'                   " Undo tree magic.
 Plug 'vim-airline/vim-airline'         " Beautiful status line.
 Plug 'vim-airline/vim-airline-themes'
+Plug 'ludovicchabant/vim-lawrencium'   " Awesome mercurial integration.
+Plug 'tpope/vim-fugitive'              " Awesome git integration.
+
 
 
 " vim Extensions
