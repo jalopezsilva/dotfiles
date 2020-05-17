@@ -112,6 +112,7 @@ set undofile                     " Undo forever.
 set undodir=~/.vim/undodir
 
 if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
   source ~/.vimrc_background     " base16 colorscheme
 endif
 
@@ -329,7 +330,12 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 let g:airline#extensions#ale#enabled = 1
 
-let g:ale_linters = {'python': ['pyls']}
+let g:ale_fix_on_save = 1
+let g:ale_linters = { 'python': ['pyls'], 'cpp' : ['ccls'] }
+let g:ale_fixers = {
+      \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \   'cpp': ['clang-format'],
+      \}
 
 highlight ALEWarning ctermbg=236
 highlight ALEError ctermbg=240

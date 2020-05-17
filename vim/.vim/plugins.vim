@@ -36,13 +36,15 @@ Plug 'tpope/vim-unimpaired'            " Must-have mappings.
 " IDE-like improvements.
 
 
+Plug 'camspiers/animate.vim'
+Plug 'camspiers/lens.vim'              " Animated re-size of windows.
 Plug 'junegunn/goyo.vim'               " Lovely text editing.
+Plug 'ludovicchabant/vim-lawrencium'   " Awesome mercurial integration.
 Plug 'myusuf3/numbers.vim'             " Toggle between num, relativenum.
 Plug 'sjl/gundo.vim'                   " Undo tree magic.
+Plug 'tpope/vim-fugitive'              " Awesome git integration.
 Plug 'vim-airline/vim-airline'         " Beautiful status line.
 Plug 'vim-airline/vim-airline-themes'
-Plug 'ludovicchabant/vim-lawrencium'   " Awesome mercurial integration.
-Plug 'tpope/vim-fugitive'              " Awesome git integration.
 
 
 
