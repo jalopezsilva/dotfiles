@@ -85,6 +85,9 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
+bindsym --release --whole-window --border button6 workspace prev
+bindsym --release --whole-window --border button7 workspace next
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
@@ -149,7 +152,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Lock screen
-bindsym $mod+BackSpace exec "xlock -mode rain"
+bindsym $mod+BackSpace exec "xdg-screensaver lock"
 
 # Screen Capture
 bindsym $mod+z exec "scrot -s -e 'mv $f ~/Pictures/'"

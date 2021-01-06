@@ -24,10 +24,13 @@ let g:PluginDir = "~/.vim/plugged"
 " External non-versioned init file (optional).
 let g:ExternalInitPath = "~/.vim/externalinit.vim"
 
+" Preload configuration file (optional)
+let g:PreloadInitPath = "~/.vim/preload.vim"
 
 " Initialize Plugins
 set nocompatible
 filetype off
+call SourceFile(g:PreloadInitPath)
 call PluginInit(g:PluginsDefPath, g:PluginDir)
 call SourceFile(g:ExternalInitPath)
 filetype plugin indent on
@@ -37,79 +40,86 @@ syntax on
 
 " == Basic Settings == {{{
 
-set number                       " Number lines.
+set number                     " Number lines.
 
-set expandtab                    " Tab equals spaces.
+set expandtab                  " Tab equals spaces.
 
-set tabstop=2                    " Defines size of a tab in spaces.
-set softtabstop=2                " Spaces to delete when deleting a tab.
-set shiftwidth=2                 " Spaces to use while indenting.
-set shiftround                   " Use shiftwidth multiples when '>' or '<'
+set tabstop=2                  " Defines size of a tab in spaces.
+set softtabstop=2              " Spaces to delete when deleting a tab.
+set shiftwidth=2               " Spaces to use while indenting.
+set shiftround                 " Use shiftwidth multiples when '>' or '<'
 
-set nowrap                       " No wrapping of horizontal lines.
+set nowrap                     " No wrapping of horizontal lines.
 
-set showcmd                      " Display incomplete commands
+set showcmd                    " Display incomplete commands
 
-set showmatch                    " Display matching brackets.
+set showmatch                  " Display matching brackets.
 
-set cmdheight=2                  " Sets the height of the cmd in lines.
+set cmdheight=2                " Sets the height of the cmd in lines.
 
-set clipboard=unnamed            " Uses the system's clipboard.
+set clipboard=unnamed          " Uses the system's clipboard.
 
-set incsearch                    " Search as you type.
-set hlsearch                     " Highlights search matches.
+set incsearch                  " Search as you type.
+set hlsearch                   " Highlights search matches.
 
-set ignorecase                   " Ignore case while searching.
+set ignorecase                 " Ignore case while searching.
 
-set listchars+=eol:¬             " Expand listchars to show <EOL>.
+set listchars+=eol:¬           " Expand listchars to show <EOL>.
 
 if has('mouse')
-  set mouse=a                    " Enables use of mouse (all modes).
+  set mouse=a                  " Enables use of mouse (all modes).
 endif
 
-if has("mouse_sgr")              " Fixes use of mouse on right most buffer.
+if has("mouse_sgr")            " Fixes use of mouse on right most buffer.
   set ttymouse=sgr
 else
   set ttymouse=xterm2
 end
 
-set pastetoggle=<F2>             " Paste toggle.
+set pastetoggle=<F2>           " Paste toggle.
 
-set hidden                       " Allow hidden buffers.
+set hidden                     " Allow hidden buffers.
 
-set fileformat=unix              " Define <EOL>
+set fileformat=unix            " Define <EOL>
 
-set undolevels=1000              " Remember my changes.
+set undolevels=1000            " Remember my changes.
 
-set wildignore+=*.swp,*.bak,     " Do not auto-complete these files.
+set wildignore+=*.swp,*.bak,   " Do not auto-complete these files.
 set wildignore+=*.class,*.pyc
 set wildignore+=*/node_modules/*
 
-set breakindent                  " Wrapped lines should be indented.
-set showbreak=↪                  " Visual lines indicator.
+set breakindent                " Wrapped lines should be indented.
+set showbreak=↪                " Visual lines indicator.
 
-set nobackup                     " Disable backing of files
+set nobackup                   " Disable backing of files
+set nowritebackup
 
-set noswapfile                   " Disable use of swap file.
+set noswapfile                 " Disable use of swap file.
 
-set wildmode=longest:full,full   " Longest common string, start wild menu.
+set wildmode=longest:full,full " Longest common string, start wild menu.
 
-set nostartofline                " Disables startofline option
+set nostartofline              " Disables startofline option
 
-set smartindent                  " Indent, Indent, Indent
+set smartindent                " Indent, Indent, Indent
 
-set cursorline                   " Highlight the current line.
-set colorcolumn=81               " Shows the current column.
+set cursorline                 " Highlight the current line.
+set colorcolumn=81             " Shows the current column.
 
-set cm=blowfish2                 " Crypt method.
+set cm=blowfish2               " Crypt method.
 
-set lazyredraw                   " Don't redraw on macro execution.
+set lazyredraw                 " Don't redraw on macro execution.
 
-set splitbelow                   " Opening new buffers to the right or below.
+set splitbelow                 " Opening new buffers to the right or below.
 set splitright
 
-set undofile                     " Undo forever.
+set undofile                   " Undo forever.
 set undodir=~/.vim/undodir
+
+set updatetime=300             " Down from 4 seconds for CursorHold.
+
+set shortmess+=c               " Don't pass messages to |ins-completion-menu|.
+
+set signcolumn=yes             " Keep a left column for signals.
 
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
@@ -162,12 +172,10 @@ onoremap in[ :<c-u>normal! 0f[vi[<cr>
 nnoremap Y y$
 
 " Home row escaping.
-inoremap <esc> <nop>
 inoremap jk <esc>
 inoremap kj <esc>
 
 " Easier pane navigation.
-noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
@@ -314,32 +322,15 @@ autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 " ALE
-
-" Autocompletion engine
-let g:deoplete#enable_at_startup = 1
-
-nnoremap <C-]> :ALEGoToDefinition<CR>
-nnoremap T :ALEHover<CR>
-nnoremap <c-y> :ALEInfo<CR>
-nnoremap <leader>fr :ALEFindReferences<CR>
-
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
 let g:airline#extensions#ale#enabled = 1
-
-let g:ale_fix_on_save = 1
-let g:ale_linters = { 'python': ['pyls'], 'cpp' : ['ccls'] }
 let g:ale_fixers = {
       \   '*': ['remove_trailing_lines', 'trim_whitespace'],
       \   'cpp': ['clang-format'],
+      \   'rust': ['rustfmt'],
       \}
 
 highlight ALEWarning ctermbg=236
 highlight ALEError ctermbg=240
-
 
 " Easy Align
 " Start interactive EasyAlign in visual mode.
@@ -347,5 +338,79 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object.
 nmap ga <Plug>(EasyAlign)"
 
+" coc.nvim
 
+" Use tab for trigger completion with characters ahead and navigate.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-@> coc#refresh()
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap keys for applying codeAction to the current buffer.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Map function and class text objects
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
+
+" Mappings for CoCList
+nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
+nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+" Snippet support
+imap <C-s> <Plug>(coc-snippets-expand)
 " }}}

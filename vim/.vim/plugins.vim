@@ -14,11 +14,8 @@ Plug 'tmux-plugins/vim-tmux'           " tmux filetype.
 " Autocompletion
 
 
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' " More snippets.
-Plug 'jiangmiao/auto-pairs'                         " Automatically generate pairs.
-Plug 'Shougo/deoplete.nvim'                         " Fancy autocompletion engine.
-Plug 'roxma/nvim-yarp'                              " Compatibility layer for nvim
-Plug 'roxma/vim-hug-neovim-rpc'                     " Compatibility layer for nvim
+Plug 'honza/vim-snippets'                       " More snippets.
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " LSP + Autocomplete
 
 
 " Commands, Movement.
@@ -45,7 +42,6 @@ Plug 'sjl/gundo.vim'                   " Undo tree magic.
 Plug 'tpope/vim-fugitive'              " Awesome git integration.
 Plug 'vim-airline/vim-airline'         " Beautiful status line.
 Plug 'vim-airline/vim-airline-themes'
-
 
 
 " vim Extensions

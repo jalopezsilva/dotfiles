@@ -8,6 +8,8 @@ vim/.vim/.tags
 
 # vim files
 vim/.vim/externalinit.vim
+vim/.vim/preload.vim
+vim/.vim/coc-settings.json
 vim/.vim/plugged/*
 
 # Tmux PLugins
